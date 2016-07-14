@@ -72,3 +72,64 @@ I've rewritten it in valid scheme-format.
 - For applicative-order evaluation, it'll enter a infinite loop. Because firstly interpreter will try to substitute (p) by (p) according to the definiton, but this will never end.
 - For normal-order evaluation, the result is 0.
 =(test 0 (p))= will be interpret as ~(if (= 0 0) 0 (p))~ and then 0, because the predicate expression is evaluated first, (p) will never be substitute.
+
+** Exercise 1.6:
+Unfortunately, this =new-if= doesn't work as the special form =if=
+does. The =new-if=, under current context, is no more than a
+predefined procedure. So it'will behave just like other procedures :
+calculate the value of the operands and then use these values to do
+the procedures. No matter what result the predicate will produce, the
+then-clause and the else-clause both get evaluated.
+
+In the =sqrt-iter= program, use the =new-if= will cause the program to
+run forever. The evaluation of =sqrt-root= will never end.
+
+** Exercise 1.7:
+Use the code in the book, when calculating square root of small
+numbers, like 0.0009, the interpreter output 0.04.
+
+Instead of setting the absolute value that the answer's square and
+radicand differs, we can use a value to restrict the ratio of the
+error, say, 0.1%.
+#+BEGIN_SRC scheme
+(load "square-root.scm")
+
+(define (good-enough? guess x)
+  (< (abs (/ (-
+              (square guess)
+              x)
+             x))
+     0.001))
+#+END_SRC
+Using the new =good-enough= test, now the program
+can produce answer much more accurate. For 0.0009,
+the answer is 3.0000012746348552e-2.
+
+** Exercise 1.8:
+#+BEGIN_SRC scheme
+;; Newton's method for cube roots
+
+(define (square x) (* x x))
+
+(define (improve y x)
+  (/ (+ (/ x
+           (square y))
+        (* 2 y))
+     3))
+
+(define (cube x) (* x (square x)))
+
+(define (good-enough? guess x)
+  (< (/ (abs (- (cube guess)
+                x))
+        x)
+     0.001))
+
+(define (cube-iter guess x)
+  (if (good-enough? guess x)
+      guess
+      (cube-iter (improve guess x) x)))
+
+(define (cube-root x)
+  (cube-iter 1.0 x))
+#+END_SRC
