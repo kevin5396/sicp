@@ -133,3 +133,90 @@ the answer is 3.0000012746348552e-2.
 (define (cube-root x)
   (cube-iter 1.0 x))
 #+END_SRC
+
+** Exercise 1.9:
+   + The first one :
+     #+BEGIN_SRC scheme
+       (+ 4 5)
+       (inc (+ 3 5))
+       (inc (inc (+ 2 5)))
+       (inc (inc (inc (+ 1 5))))
+       (inc (inc (inc (inc (+ 0 5)))))
+       (inc (inc (inc (inc 5))))
+       (inc (inc (inc 6)))
+       (inc (inc 7))
+       (inc 8)
+       9
+     #+END_SRC
+     As we can see, this process fully expands then contracts and
+     the length of the chain of deferred =inc= operations, with the
+     amount of information needed to keep track of it, grows linearly
+     with n. Therefore it's a linear recursive process.
+   + The second one:
+     #+BEGIN_SRC scheme
+       (+ 4 5)
+       (+ 3 6)
+       (+ 2 7)
+       (+ 1 8)
+       (+ 0 9)
+       9
+     #+END_SRC
+     This process does not grow and shrink, it's a linear iterative
+     process.
+
+** Exercise 1.10:
+   Use mathematical stuff, we can say that A is some kind of function
+   f, s.t.,
+   + f(anyvalue, 0) = 0
+   + f(0, anyvalue) = 2 * anyvalue
+   + f(anyvalue, 1) = 2
+   + otherwise, f(x, y) = f(x-1, f(x, y-1))
+   Using substitution model,
+   #+BEGIN_SRC scheme
+     ;; process (A 1 10)
+     (A 1 10)
+     (A 0 (A 1 9))
+     (A 0 (A 0 (A 1 8)))
+     (A 0 (A 0 (A 0 (A 1 7))))
+     (A 0 (A 0 (A 0 (A 0 (A 1 6)))))
+     (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 5))))))
+     (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 4)))))))
+     (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 3))))))))
+     (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 2)))))))))
+     (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 1))))))))))
+     (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 2)))))))))
+     (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 4))))))))
+     (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 8)))))))
+        ...
+        ...
+     1024 ; 2 to the power of 10
+     ;; seems f(1, n) = 2^n for n > 0
+
+
+     ;; (A 2 4)
+     (A 2 4)
+     (A 1 (A 2 3))
+     (A 1 (A 1 (A 2 2)))
+     (A 1 (A 1 (A 1 (A 2 1))))
+     (A 1 (A 1 (A 1 2)))
+     (A 1 (A 1 (A 0 (A 1 1))))
+     (A 1 (A 1 (A 0 2)))
+     (A 1 (A 1 4))
+     (A 1 (A 0 (A 1 3)))
+     (A 1 (A 0 8))
+     (A 1 16)
+     65536 ; 2^16
+     ;; notice the pattern here, f(2, n) = f(1, f(2, n-1)) = 2^f(2, n-1)
+
+     (A 3 3)
+     (A 2 (A 3 2))
+     (A 2 (A 2 (A 3 1)))
+     (A 2 (A 2 2))
+     (A 2 4)
+     65536
+     ;; f(3, n) = f(2, f(3, n-1))
+   #+END_SRC
+   It's easy to see that,
+   + =(f n)= computes 2*n
+   + =(g n)= computes 2^n
+   + =(h n)= computes 2^{2^{...}}, n layers of exponent.
