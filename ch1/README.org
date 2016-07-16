@@ -220,3 +220,76 @@ the answer is 3.0000012746348552e-2.
    + =(f n)= computes 2*n
    + =(g n)= computes 2^n
    + =(h n)= computes 2^{2^{...}}, n layers of exponent.
+
+** Exercise 1.11:
+#+BEGIN_SRC scheme
+;; recursive
+
+(define (f-recursive n) (f-rec-iter n))
+(define (f-rec-iter n)
+  (cond ((< n 3) n)
+        (else (+ (f-rec-iter (- n 1))
+                 (* 2
+                    (f-rec-iter (- n 2)))
+                 (* 3
+                    (f-rec-iter (- n 3)))))))
+
+;; iterative
+(define (f-iterative n) (f-iter-iter 2 1 0 n))
+(define (f-iter-iter a b c count)
+  (if (= count 0)
+      c
+      (f-iter-iter (+ a
+                      (* 2 b)
+                      (* 3 c))
+                   a
+                   b
+                   (- count 1))))
+
+#+END_SRC
+running the recursive version with n = 100 is like forever...Yet the
+iterative version immediately return the answer.
+
+** Exercise 1.12:
+The procedure =(pascal row col)= gives the element at the
+corresponding row and column.
+#+BEGIN_SRC scheme
+;; recursive
+
+(define (pascal row col)
+  (if (or (= row 0)
+          (= row 1)
+          (= col 0)
+          (= row col))
+      1
+      (+ (pascal (- row 1)
+                 (- col 1))
+         (pascal (- row 1)
+                 col))))
+
+
+;; iterative, a little mathematics
+
+(define (pascal-iter row col)
+  (if (or (= row 0)
+          (= col 0)
+          (= row 1)
+          (= row col))
+      1
+      (pascal-iter-iter row 1 row col)))
+
+;; this looks a little bit weird because I just don't wanna calculate the factorials
+
+(define (pascal-iter-iter row deno num count)
+  (if (= count 1) ;; do the division when count hits 1
+      (/ num deno)
+      (pascal-iter-iter (- row 1)
+                        (* deno count)
+                        (* num
+                           (- row 1))
+                        (- count 1))))
+#+END_SRC
+
+** Exercise 1.13:
+Just prove this,
+[[file:ex1-13.pdf]]
