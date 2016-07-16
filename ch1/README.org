@@ -292,4 +292,4 @@ corresponding row and column.
 
 ** Exercise 1.13:
 Just prove this,
-[[file:ex1-13.pdf]]
+[[file:ex1-13.png]]
