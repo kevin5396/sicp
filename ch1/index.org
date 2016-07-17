@@ -1,5 +1,4 @@
-* Chatper 1
-** Exercise 1.1:
+** Exercise 1.1
 #+BEGIN_SRC scheme
   10
   (+ 5 3 4)
@@ -23,14 +22,14 @@
      (+ a 1))
 #+END_SRC
 
-** Exercise 1.2:
+** Exercise 1.2
 I've rewritten it in valid scheme-format.
 #+BEGIN_SRC scheme
 (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5)))))
    (* 3 (- 6 2) (- 2 7)))
 #+END_SRC
 
-** Exercise 1.3:
+** Exercise 1.3
 #+BEGIN_SRC scheme
 (define (square x) (* x x))
 
@@ -63,17 +62,17 @@ I've rewritten it in valid scheme-format.
 
 #+END_SRC
 
-** Exercise 1.4:
+** Exercise 1.4
 =((if (> b 0) + -) a b)=
 - if b > 0, then + is the operator and thus a + b is performed.
 - otherwise, a - b is performed.
 
-** Exercise 1.5:
+** Exercise 1.5
 - For applicative-order evaluation, it'll enter a infinite loop. Because firstly interpreter will try to substitute (p) by (p) according to the definiton, but this will never end.
 - For normal-order evaluation, the result is 0.
 =(test 0 (p))= will be interpret as ~(if (= 0 0) 0 (p))~ and then 0, because the predicate expression is evaluated first, (p) will never be substitute.
 
-** Exercise 1.6:
+** Exercise 1.6
 Unfortunately, this =new-if= doesn't work as the special form =if=
 does. The =new-if=, under current context, is no more than a
 predefined procedure. So it'will behave just like other procedures :
@@ -84,7 +83,7 @@ then-clause and the else-clause both get evaluated.
 In the =sqrt-iter= program, use the =new-if= will cause the program to
 run forever. The evaluation of =sqrt-root= will never end.
 
-** Exercise 1.7:
+** Exercise 1.7
 Use the code in the book, when calculating square root of small
 numbers, like 0.0009, the interpreter output 0.04.
 
@@ -105,7 +104,7 @@ Using the new =good-enough= test, now the program
 can produce answer much more accurate. For 0.0009,
 the answer is 3.0000012746348552e-2.
 
-** Exercise 1.8:
+** Exercise 1.8
 #+BEGIN_SRC scheme
 ;; Newton's method for cube roots
 
@@ -134,7 +133,7 @@ the answer is 3.0000012746348552e-2.
   (cube-iter 1.0 x))
 #+END_SRC
 
-** Exercise 1.9:
+** Exercise 1.9
    + The first one :
      #+BEGIN_SRC scheme
        (+ 4 5)
@@ -164,7 +163,7 @@ the answer is 3.0000012746348552e-2.
      This process does not grow and shrink, it's a linear iterative
      process.
 
-** Exercise 1.10:
+** Exercise 1.10
    Use mathematical stuff, we can say that A is some kind of function
    f, s.t.,
    + f(anyvalue, 0) = 0
@@ -221,7 +220,7 @@ the answer is 3.0000012746348552e-2.
    + =(g n)= computes 2^n
    + =(h n)= computes 2^{2^{...}}, n layers of exponent.
 
-** Exercise 1.11:
+** Exercise 1.11
 #+BEGIN_SRC scheme
 ;; recursive
 
@@ -250,7 +249,7 @@ the answer is 3.0000012746348552e-2.
 running the recursive version with n = 100 is like forever...Yet the
 iterative version immediately return the answer.
 
-** Exercise 1.12:
+** Exercise 1.12
 The procedure =(pascal row col)= gives the element at the
 corresponding row and column.
 #+BEGIN_SRC scheme
@@ -290,6 +289,5 @@ corresponding row and column.
                         (- count 1))))
 #+END_SRC
 
-** Exercise 1.13:
-Just prove this,
-[[file:ex1-13.png]]
+** Exercise 1.13
+Just prove $\vert \frac{\psi^n}{\sqrt{5}}\vert < 0.5$.

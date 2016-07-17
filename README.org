@@ -3,4 +3,4 @@ answers to sicp exercises
 
 Structure and Interpretation of Computer Programs
 
-** [[file:ch1/README.org][Building Abstractions with Procedures]]
+All published at [[http://lingkangwei.me/sicp]]
