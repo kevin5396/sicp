@@ -291,3 +291,31 @@ corresponding row and column.
 
 ** Exercise 1.13
 Just prove $\vert \frac{\psi^n}{\sqrt{5}}\vert < 0.5$.
+** Exercise 1.14
+#+CAPTION: from [[http://sicp.readthedocs.io/en/latest/_images/14.png][readthedocs]]
+#+ATTR_HTML: :width 916px :height 696px
+[[http://sicp.readthedocs.io/en/latest/_images/14.png]]
+** Exercise 1.15
+*** a
+   Whenever angle is greater than 0.1, =p= will be called. 12.15 ->
+   4.05 -> 1.35 -> 0.45 -> 0.15 -> 0.05 -> backtracking, so =p= is
+   applied 5 times.
+
+   On the other hand, we can use =trace-entry= to trace the procedure
+   p.
+#+BEGIN_SRC scheme
+[Entering #[compound-procedure 2 p]
+    Args: 4.9999999999999996e-2]
+[Entering #[compound-procedure 2 p]
+    Args: .1495]
+[Entering #[compound-procedure 2 p]
+    Args: .4351345505]
+[Entering #[compound-procedure 2 p]
+    Args: .9758465331678772]
+[Entering #[compound-procedure 2 p]
+    Args: -.7895631144708228]
+;Value: -.39980345741334
+#+END_SRC
+*** b
+    Every time the angle will be divided by 3 and it's a recursive
+    procedure, the space and time complexity are all $O(\log_3a)$.
