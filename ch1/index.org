@@ -319,3 +319,66 @@ Just prove $\vert \frac{\psi^n}{\sqrt{5}}\vert < 0.5$.
 *** b
     Every time the angle will be divided by 3 and it's a recursive
     procedure, the space and time complexity are all $O(\log_3a)$.
+** Exercise 1.16
+The strategy is:
++ if =n= is even, then we call the iterative procedure on squared =b=
+  and halved =n=
++ else we update a to a times b, and call the iterative procedure on
+  squared =b= and halved =n-1=.
+#+INCLUDE: "ex1-16.scm" src scheme
+** Exercise 1.17
+** Exercise 1.18
+#+INCLUDE: "ex1-17.scm" src scheme
+Note that we have to handle the case when b is negative.
+** Exercise 1.19
+By applying the transform $T_{pq}$ twice, we can derive that the new
+transform $T_{p'q'}$:
+\begin{align*}
+a &\leftarrow b(2pq+q^2) + a(2pq+q^2) + a(p^2+q^2) \\
+b &\leftarrow b(p^2+q^2) + a(2pq+q^2)
+\end{align*}
+therefore,
+\begin{align*}
+p' &= p^2 + q^2 \\
+q' &= 2pq + q^2
+\end{align*}
+
+#+INCLUDE: "ex1-19.scm" src scheme
+
+** Exercise 1.20
+For applicative order substitution, 4 times.
+#+BEGIN_SRC scheme
+  (gcd 206 40) ;(gcd 40 (remainder 206 40))
+  (gcd 40 6)   ;(gcd 6 (remainder 40 6))
+  (gcd 6 4)    ;(gcd 4 (remainder 6 4))
+  (gcd 4 2)    ;(gcd 2 (remainder 4 2))
+  (gcd 2 0)    ;no remainder call
+  2
+#+END_SRC
+For normal order, use the following symbols to track the process,
++ t1 = (remainder 206 40) = 6, evaluation needs call =remainder= 1 time.
++ t2 = (remainder 40 t1) = 4, 2 times.
++ t3 = (remainder t1 t2) = 2, 4 times.
++ t4 = (remainder t2 t3) = 0, 7 times.
+#+BEGIN_SRC scheme
+  (gcd 206 40)
+
+  (gcd 40 t1)
+
+  if (= t1 0)   ;; #f +1
+
+  (gcd t1 t2)
+
+  if (= t2 0)  ;; #f +2
+
+  (gcd t2 t3)
+
+  if (= t3 0)  ;; #f +4
+
+  (gcd t3 t4)
+
+  if (= t4 0) ;; #t +7
+
+  t3     ;; +4
+#+END_SRC
+18 times in total.
