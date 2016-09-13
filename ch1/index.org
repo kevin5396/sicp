@@ -382,3 +382,53 @@ For normal order, use the following symbols to track the process,
   t3     ;; +4
 #+END_SRC
 18 times in total.
+** Exercise 1.21
+#+INCLUDE: "smallest-divisor.scm" src scheme
+#+BEGIN_SRC scheme
+1 ]=> (smallest-divisor 199)
+
+;Value: 199
+
+1 ]=> (smallest-divisor 1999)
+
+;Value: 1999
+
+1 ]=> (smallest-divisor 19999)
+
+;Value: 7
+#+END_SRC
+** Exercise 1.22
+We make some modifications to time-prime-test procedure so that it
+only print out prime numbers. Use
+=real-time-clock= to get the current time in miliseconds rather than
+=runtime= (in seconds).
+#+INCLUDE: "ex1-22.scm" src scheme
+Searching for small prime numbers is really fast, it's hard to see the
+difference. When searching big prime numbers, the growth of the time
+cost conforms to growth of $\sqrt(10)$.
+#+BEGIN_SRC scheme
+1009 *** 0
+1013 *** 0
+1019 *** 0
+10007 *** 0
+10009 *** 1
+10037 *** 0
+100003 *** 0
+100019 *** 1
+100043 *** 0
+1000003 *** 2
+1000033 *** 2
+1000037 *** 1
+1000000007 *** 39
+1000000009 *** 53
+1000000021 *** 36
+10000000019 *** 102
+10000000033 *** 107
+10000000061 *** 110
+100000000003 *** 337
+100000000019 *** 326
+100000000057 *** 327
+1000000000039 *** 1048
+1000000000061 *** 1035
+1000000000063 *** 1036
+#+END_SRC
