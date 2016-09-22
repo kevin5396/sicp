@@ -432,3 +432,97 @@ cost conforms to growth of $\sqrt(10)$.
 1000000000061 *** 1035
 1000000000063 *** 1036
 #+END_SRC
+** Exercise 1.23
+#+BEGIN_SRC scheme
+1009 *** 0
+1013 *** 0
+1019 *** 0
+10007 *** 0
+10009 *** 0
+10037 *** 0
+100003 *** 0
+100019 *** 0
+100043 *** 0
+1000003 *** 1
+1000033 *** 1
+1000037 *** 1
+1000000007 *** 22
+1000000009 *** 25
+1000000021 *** 23
+10000000019 *** 64
+10000000033 *** 69
+10000000061 *** 71
+100000000003 *** 205
+100000000019 *** 208
+100000000057 *** 213
+1000000000039 *** 673
+1000000000061 *** 658
+1000000000063 *** 654
+#+END_SRC
+Compared with exercise 1.22, we can find that the
+=next= did bring some improvements, but not exactly
+halved the running time. Well, my point is, the
+exact executing time of the algorithm can be
+affected by many other factors.
+** Exercise 1.24
+1. fast prime:
+#+INCLUDE: "fast-prime.scm" src scheme
+2. test
+#+INCLUDE: "ex1-24.scm" src scheme
+3. result
+#+BEGIN_SRC scheme
+1000000007 *** 67
+1000000009 *** 76
+1000000021 *** 64
+10000000019 *** 79
+10000000033 *** 82
+10000000061 *** 82
+100000000003 *** 85
+100000000019 *** 84
+100000000057 *** 86
+1000000000039 *** 87
+1000000000061 *** 93
+1000000000063 *** 94
+#+END_SRC
+For every number, we run fermat test 1000 times
+(just to make the time easier to compare). As we
+can see, when the test number increase by 10
+times, the extra time needed is approximately $log
+10$.
+** Exercise 1.25
+Use the =fast-expt= procedure, a very large number
+may be introduced to the function =remainder=, which
+will definitely slow down the computation
+markedly.
+** Exercise 1.26
+Louis's approach doesn't introduce a $\Theta(log n)$
+process, but rather a $\Theta(n)$ process. Though
+it does halve the =exp=, but the expmod has been
+calculated twice.
+** Exercise 1.27
+#+INCLUDE: "ex1-27.scm" src scheme
+They really fooled the test!
+#+BEGIN_SRC scheme
+561 Fooled.
+1105 Fooled.
+1729 Fooled.
+2465 Fooled.
+2821 Fooled.
+6601 Fooled.
+#+END_SRC
+** Exercise 1.28
+#+INCLUDE: "ex1-28.scm" src scheme
+I did the test for 50 times, it worked quite well.
+#+BEGIN_SRC scheme
+561 is not a prime.
+1105 is not a prime.
+1729 is not a prime.
+2465 is not a prime.
+2821 is not a prime.
+6601 is not a prime.
+test true primes
+1000000007 is prime.
+1000000009 is prime.
+1000000021 is prime.
+10000000019 is prime.
+#+END_SRC

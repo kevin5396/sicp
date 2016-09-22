@@ -1,0 +1,20 @@
+(load "utils.scm")
+
+(define (test-carmichael n)
+  (define (test-iter current)
+    (cond ((= current 1) true)
+          ((= (expmod current n n) current)
+           (test-iter (- current 1)))
+          (else false)))
+  (display n)
+  (if (test-iter (- n 1))
+      (display " Fooled.\n")
+      (display " Not Fooled.\n")))
+;; if the number really fool the test, then true is returned.
+
+(test-carmichael 561)
+(test-carmichael 1105)
+(test-carmichael 1729)
+(test-carmichael 2465)
+(test-carmichael 2821)
+(test-carmichael 6601)
