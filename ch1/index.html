@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-09-13 Tue 10:20 -->
+<!-- 2016-09-22 Thu 22:14 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -96,7 +96,7 @@
 </style>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="/css/book/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/book/style.css" /><link rel="stylesheet" type="text/css" href="/css/code.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -199,6 +199,12 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline22">20. Exercise 1.20</a></li>
 <li><a href="#orgheadline23">21. Exercise 1.21</a></li>
 <li><a href="#orgheadline24">22. Exercise 1.22</a></li>
+<li><a href="#orgheadline25">23. Exercise 1.23</a></li>
+<li><a href="#orgheadline26">24. Exercise 1.24</a></li>
+<li><a href="#orgheadline27">25. Exercise 1.25</a></li>
+<li><a href="#orgheadline28">26. Exercise 1.26</a></li>
+<li><a href="#orgheadline29">27. Exercise 1.27</a></li>
+<li><a href="#orgheadline30">28. Exercise 1.28</a></li>
 </ul>
 </div>
 </div>
@@ -208,25 +214,25 @@ for the JavaScript code in this tag.
 <div class="org-src-container">
 
 <pre class="src src-scheme">10
-(+ 5 3 4)
-(- 9 1)
-(/ 6 2)
-(+ (* 2 4) (- 4 6))
-(<span style="color: #859900;">define</span> <span style="color: #268bd2;">a</span> 3)
-(<span style="color: #859900;">define</span> <span style="color: #268bd2;">b</span> (+ a 1))
-(+ a b (* a b))
-(= a b)
-(<span style="color: #859900;">if</span> (<span style="color: #859900;">and</span> (&gt; b a) (&lt; b (* a b)))
+<span class="org-rainbow-delimiters-depth-1">(</span>+ 5 3 4<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>- 9 1<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>/ 6 2<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>+ <span class="org-rainbow-delimiters-depth-2">(</span>* 2 4<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>- 4 6<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-function-name">a</span> 3<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-function-name">b</span> <span class="org-rainbow-delimiters-depth-2">(</span>+ a 1<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>+ a b <span class="org-rainbow-delimiters-depth-2">(</span>* a b<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>= a b<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">and</span> <span class="org-rainbow-delimiters-depth-3">(</span>&gt; b a<span class="org-rainbow-delimiters-depth-3">)</span> <span class="org-rainbow-delimiters-depth-3">(</span>&lt; b <span class="org-rainbow-delimiters-depth-4">(</span>* a b<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span>
         b
-        a)
-(<span style="color: #859900;">cond</span> ((= a 4) 6)
-          ((= b 4) (+ 6 7 a))
-          (<span style="color: #859900;">else</span> 25))
-(+ 2 (<span style="color: #859900;">if</span> (&gt; b a) b a))
-(* (<span style="color: #859900;">cond</span> ((&gt; a b) a)
-                 ((&lt; a b) b)
-                 (<span style="color: #859900;">else</span> -1))
-   (+ a 1))
+        a<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-rainbow-delimiters-depth-3">(</span>= a 4<span class="org-rainbow-delimiters-depth-3">)</span> 6<span class="org-rainbow-delimiters-depth-2">)</span>
+          <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-rainbow-delimiters-depth-3">(</span>= b 4<span class="org-rainbow-delimiters-depth-3">)</span> <span class="org-rainbow-delimiters-depth-3">(</span>+ 6 7 a<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span>
+          <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">else</span> 25<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>+ 2 <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>&gt; b a<span class="org-rainbow-delimiters-depth-3">)</span> b a<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>* <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>&gt; a b<span class="org-rainbow-delimiters-depth-4">)</span> a<span class="org-rainbow-delimiters-depth-3">)</span>
+                 <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>&lt; a b<span class="org-rainbow-delimiters-depth-4">)</span> b<span class="org-rainbow-delimiters-depth-3">)</span>
+                 <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">else</span> -1<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span>
+   <span class="org-rainbow-delimiters-depth-2">(</span>+ a 1<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
 </div>
@@ -240,8 +246,8 @@ I've rewritten it in valid scheme-format.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-scheme">(/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5)))))
-   (* 3 (- 6 2) (- 2 7)))
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>/ <span class="org-rainbow-delimiters-depth-2">(</span>+ 5 4 <span class="org-rainbow-delimiters-depth-3">(</span>- 2 <span class="org-rainbow-delimiters-depth-4">(</span>- 3 <span class="org-rainbow-delimiters-depth-5">(</span>+ 6 <span class="org-rainbow-delimiters-depth-6">(</span>/ 4 5<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span>
+   <span class="org-rainbow-delimiters-depth-2">(</span>* 3 <span class="org-rainbow-delimiters-depth-3">(</span>- 6 2<span class="org-rainbow-delimiters-depth-3">)</span> <span class="org-rainbow-delimiters-depth-3">(</span>- 2 7<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
 </div>
@@ -252,34 +258,34 @@ I've rewritten it in valid scheme-format.
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 
-<pre class="src src-scheme">(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">square</span> x) (* x x))
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">square</span> x<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>* x x<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-<span style="color: #93a1a1; font-style: italic;">; </span><span style="color: #93a1a1; font-style: italic;">A simple implementation</span>
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">sum-sqr-big-0</span> a b c)
-        (<span style="color: #859900;">cond</span> ((&gt; a b)
-                          (<span style="color: #859900;">cond</span> ((&gt; b c) (+ (square a) (square b)))
-                                        (<span style="color: #859900;">else</span>    (+ (square a) (square c)))))
-                  (<span style="color: #859900;">else</span>
-                          (<span style="color: #859900;">cond</span> ((&gt; c a) (+ (square b) (square c)))
-                                    (<span style="color: #859900;">else</span>    (+ (square b) (square a)))))))
+<span class="org-comment-delimiter">; </span><span class="org-comment">A simple implementation</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">sum-sqr-big-0</span> a b c<span class="org-rainbow-delimiters-depth-2">)</span>
+        <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>&gt; a b<span class="org-rainbow-delimiters-depth-4">)</span>
+                          <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-5">(</span><span class="org-rainbow-delimiters-depth-6">(</span>&gt; b c<span class="org-rainbow-delimiters-depth-6">)</span> <span class="org-rainbow-delimiters-depth-6">(</span>+ <span class="org-rainbow-delimiters-depth-7">(</span>square a<span class="org-rainbow-delimiters-depth-7">)</span> <span class="org-rainbow-delimiters-depth-7">(</span>square b<span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span>
+                                        <span class="org-rainbow-delimiters-depth-5">(</span><span class="org-keyword">else</span>    <span class="org-rainbow-delimiters-depth-6">(</span>+ <span class="org-rainbow-delimiters-depth-7">(</span>square a<span class="org-rainbow-delimiters-depth-7">)</span> <span class="org-rainbow-delimiters-depth-7">(</span>square c<span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+                  <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">else</span>
+                          <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-5">(</span><span class="org-rainbow-delimiters-depth-6">(</span>&gt; c a<span class="org-rainbow-delimiters-depth-6">)</span> <span class="org-rainbow-delimiters-depth-6">(</span>+ <span class="org-rainbow-delimiters-depth-7">(</span>square b<span class="org-rainbow-delimiters-depth-7">)</span> <span class="org-rainbow-delimiters-depth-7">(</span>square c<span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span>
+                                    <span class="org-rainbow-delimiters-depth-5">(</span><span class="org-keyword">else</span>    <span class="org-rainbow-delimiters-depth-6">(</span>+ <span class="org-rainbow-delimiters-depth-7">(</span>square b<span class="org-rainbow-delimiters-depth-7">)</span> <span class="org-rainbow-delimiters-depth-7">(</span>square a<span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-<span style="color: #93a1a1; font-style: italic;">; </span><span style="color: #93a1a1; font-style: italic;">a nicer way</span>
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">sum-of-square</span> x y)
-        (+ (square x) (square y)))
+<span class="org-comment-delimiter">; </span><span class="org-comment">a nicer way</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">sum-of-square</span> x y<span class="org-rainbow-delimiters-depth-2">)</span>
+        <span class="org-rainbow-delimiters-depth-2">(</span>+ <span class="org-rainbow-delimiters-depth-3">(</span>square x<span class="org-rainbow-delimiters-depth-3">)</span> <span class="org-rainbow-delimiters-depth-3">(</span>square y<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">bigger</span> x y)
-        (<span style="color: #859900;">if</span> (&gt; x y)
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">bigger</span> x y<span class="org-rainbow-delimiters-depth-2">)</span>
+        <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>&gt; x y<span class="org-rainbow-delimiters-depth-3">)</span>
                 x
-                y))
+                y<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">smaller</span> x y)
-        (<span style="color: #859900;">if</span> (&lt; x y)
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">smaller</span> x y<span class="org-rainbow-delimiters-depth-2">)</span>
+        <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>&lt; x y<span class="org-rainbow-delimiters-depth-3">)</span>
                 x
-                y))
+                y<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">sum-sqr-big-1</span> a b c)
-        (sum-of-square (bigger a b)
-                                   (bigger (smaller a b) c)))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">sum-sqr-big-1</span> a b c<span class="org-rainbow-delimiters-depth-2">)</span>
+        <span class="org-rainbow-delimiters-depth-2">(</span>sum-of-square <span class="org-rainbow-delimiters-depth-3">(</span>bigger a b<span class="org-rainbow-delimiters-depth-3">)</span>
+                                   <span class="org-rainbow-delimiters-depth-3">(</span>bigger <span class="org-rainbow-delimiters-depth-4">(</span>smaller a b<span class="org-rainbow-delimiters-depth-4">)</span> c<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
 </div>
@@ -345,14 +351,14 @@ error, say, 0.1%.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-scheme">(load <span style="color: #2aa198;">"square-root.scm"</span>)
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"square-root.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">good-enough?</span> guess x)
-  (&lt; (abs (/ (-
-              (square guess)
-              x)
-             x))
-     0.001))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">good-enough?</span> guess x<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>&lt; <span class="org-rainbow-delimiters-depth-3">(</span>abs <span class="org-rainbow-delimiters-depth-4">(</span>/ <span class="org-rainbow-delimiters-depth-5">(</span>-
+              <span class="org-rainbow-delimiters-depth-6">(</span>square guess<span class="org-rainbow-delimiters-depth-6">)</span>
+              x<span class="org-rainbow-delimiters-depth-5">)</span>
+             x<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+     0.001<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
 <p>
@@ -368,31 +374,31 @@ the answer is 3.0000012746348552e-2.
 <div class="outline-text-2" id="text-8">
 <div class="org-src-container">
 
-<pre class="src src-scheme"><span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">Newton's method for cube roots</span>
+<pre class="src src-scheme"><span class="org-comment-delimiter">;; </span><span class="org-comment">Newton's method for cube roots</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">square</span> x) (* x x))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">square</span> x<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>* x x<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">improve</span> y x)
-  (/ (+ (/ x
-           (square y))
-        (* 2 y))
-     3))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">improve</span> y x<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>/ <span class="org-rainbow-delimiters-depth-3">(</span>+ <span class="org-rainbow-delimiters-depth-4">(</span>/ x
+           <span class="org-rainbow-delimiters-depth-5">(</span>square y<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
+        <span class="org-rainbow-delimiters-depth-4">(</span>* 2 y<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+     3<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">cube</span> x) (* x (square x)))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">cube</span> x<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>* x <span class="org-rainbow-delimiters-depth-3">(</span>square x<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">good-enough?</span> guess x)
-  (&lt; (/ (abs (- (cube guess)
-                x))
-        x)
-     0.001))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">good-enough?</span> guess x<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>&lt; <span class="org-rainbow-delimiters-depth-3">(</span>/ <span class="org-rainbow-delimiters-depth-4">(</span>abs <span class="org-rainbow-delimiters-depth-5">(</span>- <span class="org-rainbow-delimiters-depth-6">(</span>cube guess<span class="org-rainbow-delimiters-depth-6">)</span>
+                x<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
+        x<span class="org-rainbow-delimiters-depth-3">)</span>
+     0.001<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">cube-iter</span> guess x)
-  (<span style="color: #859900;">if</span> (good-enough? guess x)
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">cube-iter</span> guess x<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>good-enough? guess x<span class="org-rainbow-delimiters-depth-3">)</span>
       guess
-      (cube-iter (improve guess x) x)))
+      <span class="org-rainbow-delimiters-depth-3">(</span>cube-iter <span class="org-rainbow-delimiters-depth-4">(</span>improve guess x<span class="org-rainbow-delimiters-depth-4">)</span> x<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">cube-root</span> x)
-  (cube-iter 1.0 x))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">cube-root</span> x<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>cube-iter 1.0 x<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
 </div>
@@ -407,15 +413,15 @@ The first one :
 </p>
 <div class="org-src-container">
 
-<pre class="src src-scheme">(+ 4 5)
-(inc (+ 3 5))
-(inc (inc (+ 2 5)))
-(inc (inc (inc (+ 1 5))))
-(inc (inc (inc (inc (+ 0 5)))))
-(inc (inc (inc (inc 5))))
-(inc (inc (inc 6)))
-(inc (inc 7))
-(inc 8)
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>+ 4 5<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>inc <span class="org-rainbow-delimiters-depth-2">(</span>+ 3 5<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>inc <span class="org-rainbow-delimiters-depth-2">(</span>inc <span class="org-rainbow-delimiters-depth-3">(</span>+ 2 5<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>inc <span class="org-rainbow-delimiters-depth-2">(</span>inc <span class="org-rainbow-delimiters-depth-3">(</span>inc <span class="org-rainbow-delimiters-depth-4">(</span>+ 1 5<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>inc <span class="org-rainbow-delimiters-depth-2">(</span>inc <span class="org-rainbow-delimiters-depth-3">(</span>inc <span class="org-rainbow-delimiters-depth-4">(</span>inc <span class="org-rainbow-delimiters-depth-5">(</span>+ 0 5<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>inc <span class="org-rainbow-delimiters-depth-2">(</span>inc <span class="org-rainbow-delimiters-depth-3">(</span>inc <span class="org-rainbow-delimiters-depth-4">(</span>inc 5<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>inc <span class="org-rainbow-delimiters-depth-2">(</span>inc <span class="org-rainbow-delimiters-depth-3">(</span>inc 6<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>inc <span class="org-rainbow-delimiters-depth-2">(</span>inc 7<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>inc 8<span class="org-rainbow-delimiters-depth-1">)</span>
 9
 </pre>
 </div>
@@ -430,11 +436,11 @@ The second one:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-scheme">(+ 4 5)
-(+ 3 6)
-(+ 2 7)
-(+ 1 8)
-(+ 0 9)
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>+ 4 5<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>+ 3 6<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>+ 2 7<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>+ 1 8<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>+ 0 9<span class="org-rainbow-delimiters-depth-1">)</span>
 9
 </pre>
 </div>
@@ -464,48 +470,48 @@ Using substitution model,
 </p>
 <div class="org-src-container">
 
-<pre class="src src-scheme"><span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">process (A 1 10)</span>
-(A 1 10)
-(A 0 (A 1 9))
-(A 0 (A 0 (A 1 8)))
-(A 0 (A 0 (A 0 (A 1 7))))
-(A 0 (A 0 (A 0 (A 0 (A 1 6)))))
-(A 0 (A 0 (A 0 (A 0 (A 0 (A 1 5))))))
-(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 4)))))))
-(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 3))))))))
-(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 2)))))))))
-(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 1))))))))))
-(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 2)))))))))
-(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 4))))))))
-(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 8)))))))
+<pre class="src src-scheme"><span class="org-comment-delimiter">;; </span><span class="org-comment">process (A 1 10)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 1 10<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 0 <span class="org-rainbow-delimiters-depth-2">(</span>A 1 9<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 0 <span class="org-rainbow-delimiters-depth-2">(</span>A 0 <span class="org-rainbow-delimiters-depth-3">(</span>A 1 8<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 0 <span class="org-rainbow-delimiters-depth-2">(</span>A 0 <span class="org-rainbow-delimiters-depth-3">(</span>A 0 <span class="org-rainbow-delimiters-depth-4">(</span>A 1 7<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 0 <span class="org-rainbow-delimiters-depth-2">(</span>A 0 <span class="org-rainbow-delimiters-depth-3">(</span>A 0 <span class="org-rainbow-delimiters-depth-4">(</span>A 0 <span class="org-rainbow-delimiters-depth-5">(</span>A 1 6<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 0 <span class="org-rainbow-delimiters-depth-2">(</span>A 0 <span class="org-rainbow-delimiters-depth-3">(</span>A 0 <span class="org-rainbow-delimiters-depth-4">(</span>A 0 <span class="org-rainbow-delimiters-depth-5">(</span>A 0 <span class="org-rainbow-delimiters-depth-6">(</span>A 1 5<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 0 <span class="org-rainbow-delimiters-depth-2">(</span>A 0 <span class="org-rainbow-delimiters-depth-3">(</span>A 0 <span class="org-rainbow-delimiters-depth-4">(</span>A 0 <span class="org-rainbow-delimiters-depth-5">(</span>A 0 <span class="org-rainbow-delimiters-depth-6">(</span>A 0 <span class="org-rainbow-delimiters-depth-7">(</span>A 1 4<span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 0 <span class="org-rainbow-delimiters-depth-2">(</span>A 0 <span class="org-rainbow-delimiters-depth-3">(</span>A 0 <span class="org-rainbow-delimiters-depth-4">(</span>A 0 <span class="org-rainbow-delimiters-depth-5">(</span>A 0 <span class="org-rainbow-delimiters-depth-6">(</span>A 0 <span class="org-rainbow-delimiters-depth-7">(</span>A 0 <span class="org-rainbow-delimiters-depth-8">(</span>A 1 3<span class="org-rainbow-delimiters-depth-8">)</span><span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 0 <span class="org-rainbow-delimiters-depth-2">(</span>A 0 <span class="org-rainbow-delimiters-depth-3">(</span>A 0 <span class="org-rainbow-delimiters-depth-4">(</span>A 0 <span class="org-rainbow-delimiters-depth-5">(</span>A 0 <span class="org-rainbow-delimiters-depth-6">(</span>A 0 <span class="org-rainbow-delimiters-depth-7">(</span>A 0 <span class="org-rainbow-delimiters-depth-8">(</span>A 0 <span class="org-rainbow-delimiters-depth-9">(</span>A 1 2<span class="org-rainbow-delimiters-depth-9">)</span><span class="org-rainbow-delimiters-depth-8">)</span><span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 0 <span class="org-rainbow-delimiters-depth-2">(</span>A 0 <span class="org-rainbow-delimiters-depth-3">(</span>A 0 <span class="org-rainbow-delimiters-depth-4">(</span>A 0 <span class="org-rainbow-delimiters-depth-5">(</span>A 0 <span class="org-rainbow-delimiters-depth-6">(</span>A 0 <span class="org-rainbow-delimiters-depth-7">(</span>A 0 <span class="org-rainbow-delimiters-depth-8">(</span>A 0 <span class="org-rainbow-delimiters-depth-9">(</span>A 0 <span class="org-rainbow-delimiters-depth-1">(</span>A 1 1<span class="org-rainbow-delimiters-depth-1">)</span><span class="org-rainbow-delimiters-depth-9">)</span><span class="org-rainbow-delimiters-depth-8">)</span><span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 0 <span class="org-rainbow-delimiters-depth-2">(</span>A 0 <span class="org-rainbow-delimiters-depth-3">(</span>A 0 <span class="org-rainbow-delimiters-depth-4">(</span>A 0 <span class="org-rainbow-delimiters-depth-5">(</span>A 0 <span class="org-rainbow-delimiters-depth-6">(</span>A 0 <span class="org-rainbow-delimiters-depth-7">(</span>A 0 <span class="org-rainbow-delimiters-depth-8">(</span>A 0 <span class="org-rainbow-delimiters-depth-9">(</span>A 0 2<span class="org-rainbow-delimiters-depth-9">)</span><span class="org-rainbow-delimiters-depth-8">)</span><span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 0 <span class="org-rainbow-delimiters-depth-2">(</span>A 0 <span class="org-rainbow-delimiters-depth-3">(</span>A 0 <span class="org-rainbow-delimiters-depth-4">(</span>A 0 <span class="org-rainbow-delimiters-depth-5">(</span>A 0 <span class="org-rainbow-delimiters-depth-6">(</span>A 0 <span class="org-rainbow-delimiters-depth-7">(</span>A 0 <span class="org-rainbow-delimiters-depth-8">(</span>A 0 4<span class="org-rainbow-delimiters-depth-8">)</span><span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 0 <span class="org-rainbow-delimiters-depth-2">(</span>A 0 <span class="org-rainbow-delimiters-depth-3">(</span>A 0 <span class="org-rainbow-delimiters-depth-4">(</span>A 0 <span class="org-rainbow-delimiters-depth-5">(</span>A 0 <span class="org-rainbow-delimiters-depth-6">(</span>A 0 <span class="org-rainbow-delimiters-depth-7">(</span>A 0 8<span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
    ...
    ...
-1024 <span style="color: #93a1a1; font-style: italic;">; </span><span style="color: #93a1a1; font-style: italic;">2 to the power of 10</span>
-<span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">seems f(1, n) = 2^n for n &gt; 0</span>
+1024 <span class="org-comment-delimiter">; </span><span class="org-comment">2 to the power of 10</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">seems f(1, n) = 2^n for n &gt; 0</span>
 
 
-<span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">(A 2 4)</span>
-(A 2 4)
-(A 1 (A 2 3))
-(A 1 (A 1 (A 2 2)))
-(A 1 (A 1 (A 1 (A 2 1))))
-(A 1 (A 1 (A 1 2)))
-(A 1 (A 1 (A 0 (A 1 1))))
-(A 1 (A 1 (A 0 2)))
-(A 1 (A 1 4))
-(A 1 (A 0 (A 1 3)))
-(A 1 (A 0 8))
-(A 1 16)
-65536 <span style="color: #93a1a1; font-style: italic;">; </span><span style="color: #93a1a1; font-style: italic;">2^16</span>
-<span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">notice the pattern here, f(2, n) = f(1, f(2, n-1)) = 2^f(2, n-1)</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">(A 2 4)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 2 4<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 1 <span class="org-rainbow-delimiters-depth-2">(</span>A 2 3<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 1 <span class="org-rainbow-delimiters-depth-2">(</span>A 1 <span class="org-rainbow-delimiters-depth-3">(</span>A 2 2<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 1 <span class="org-rainbow-delimiters-depth-2">(</span>A 1 <span class="org-rainbow-delimiters-depth-3">(</span>A 1 <span class="org-rainbow-delimiters-depth-4">(</span>A 2 1<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 1 <span class="org-rainbow-delimiters-depth-2">(</span>A 1 <span class="org-rainbow-delimiters-depth-3">(</span>A 1 2<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 1 <span class="org-rainbow-delimiters-depth-2">(</span>A 1 <span class="org-rainbow-delimiters-depth-3">(</span>A 0 <span class="org-rainbow-delimiters-depth-4">(</span>A 1 1<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 1 <span class="org-rainbow-delimiters-depth-2">(</span>A 1 <span class="org-rainbow-delimiters-depth-3">(</span>A 0 2<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 1 <span class="org-rainbow-delimiters-depth-2">(</span>A 1 4<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 1 <span class="org-rainbow-delimiters-depth-2">(</span>A 0 <span class="org-rainbow-delimiters-depth-3">(</span>A 1 3<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 1 <span class="org-rainbow-delimiters-depth-2">(</span>A 0 8<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 1 16<span class="org-rainbow-delimiters-depth-1">)</span>
+65536 <span class="org-comment-delimiter">; </span><span class="org-comment">2^16</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">notice the pattern here, f(2, n) = f(1, f(2, n-1)) = 2^f(2, n-1)</span>
 
-(A 3 3)
-(A 2 (A 3 2))
-(A 2 (A 2 (A 3 1)))
-(A 2 (A 2 2))
-(A 2 4)
+<span class="org-rainbow-delimiters-depth-1">(</span>A 3 3<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 2 <span class="org-rainbow-delimiters-depth-2">(</span>A 3 2<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 2 <span class="org-rainbow-delimiters-depth-2">(</span>A 2 <span class="org-rainbow-delimiters-depth-3">(</span>A 3 1<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 2 <span class="org-rainbow-delimiters-depth-2">(</span>A 2 2<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>A 2 4<span class="org-rainbow-delimiters-depth-1">)</span>
 65536
-<span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">f(3, n) = f(2, f(3, n-1))</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">f(3, n) = f(2, f(3, n-1))</span>
 </pre>
 </div>
 <p>
@@ -524,28 +530,28 @@ It's easy to see that,
 <div class="outline-text-2" id="text-11">
 <div class="org-src-container">
 
-<pre class="src src-scheme"><span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">recursive</span>
+<pre class="src src-scheme"><span class="org-comment-delimiter">;; </span><span class="org-comment">recursive</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">f-recursive</span> n) (f-rec-iter n))
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">f-rec-iter</span> n)
-  (<span style="color: #859900;">cond</span> ((&lt; n 3) n)
-        (<span style="color: #859900;">else</span> (+ (f-rec-iter (- n 1))
-                 (* 2
-                    (f-rec-iter (- n 2)))
-                 (* 3
-                    (f-rec-iter (- n 3)))))))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">f-recursive</span> n<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>f-rec-iter n<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">f-rec-iter</span> n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>&lt; n 3<span class="org-rainbow-delimiters-depth-4">)</span> n<span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">else</span> <span class="org-rainbow-delimiters-depth-4">(</span>+ <span class="org-rainbow-delimiters-depth-5">(</span>f-rec-iter <span class="org-rainbow-delimiters-depth-6">(</span>- n 1<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span>
+                 <span class="org-rainbow-delimiters-depth-5">(</span>* 2
+                    <span class="org-rainbow-delimiters-depth-6">(</span>f-rec-iter <span class="org-rainbow-delimiters-depth-7">(</span>- n 2<span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span>
+                 <span class="org-rainbow-delimiters-depth-5">(</span>* 3
+                    <span class="org-rainbow-delimiters-depth-6">(</span>f-rec-iter <span class="org-rainbow-delimiters-depth-7">(</span>- n 3<span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-<span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">iterative</span>
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">f-iterative</span> n) (f-iter-iter 2 1 0 n))
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">f-iter-iter</span> a b c count)
-  (<span style="color: #859900;">if</span> (= count 0)
+<span class="org-comment-delimiter">;; </span><span class="org-comment">iterative</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">f-iterative</span> n<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>f-iter-iter 2 1 0 n<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">f-iter-iter</span> a b c count<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>= count 0<span class="org-rainbow-delimiters-depth-3">)</span>
       c
-      (f-iter-iter (+ a
-                      (* 2 b)
-                      (* 3 c))
+      <span class="org-rainbow-delimiters-depth-3">(</span>f-iter-iter <span class="org-rainbow-delimiters-depth-4">(</span>+ a
+                      <span class="org-rainbow-delimiters-depth-5">(</span>* 2 b<span class="org-rainbow-delimiters-depth-5">)</span>
+                      <span class="org-rainbow-delimiters-depth-5">(</span>* 3 c<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
                    a
                    b
-                   (- count 1))))
+                   <span class="org-rainbow-delimiters-depth-4">(</span>- count 1<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
 <p>
@@ -564,40 +570,40 @@ corresponding row and column.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-scheme"><span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">recursive</span>
+<pre class="src src-scheme"><span class="org-comment-delimiter">;; </span><span class="org-comment">recursive</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">pascal</span> row col)
-  (<span style="color: #859900;">if</span> (<span style="color: #859900;">or</span> (= row 0)
-          (= row 1)
-          (= col 0)
-          (= row col))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">pascal</span> row col<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">or</span> <span class="org-rainbow-delimiters-depth-4">(</span>= row 0<span class="org-rainbow-delimiters-depth-4">)</span>
+          <span class="org-rainbow-delimiters-depth-4">(</span>= row 1<span class="org-rainbow-delimiters-depth-4">)</span>
+          <span class="org-rainbow-delimiters-depth-4">(</span>= col 0<span class="org-rainbow-delimiters-depth-4">)</span>
+          <span class="org-rainbow-delimiters-depth-4">(</span>= row col<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
       1
-      (+ (pascal (- row 1)
-                 (- col 1))
-         (pascal (- row 1)
-                 col))))
+      <span class="org-rainbow-delimiters-depth-3">(</span>+ <span class="org-rainbow-delimiters-depth-4">(</span>pascal <span class="org-rainbow-delimiters-depth-5">(</span>- row 1<span class="org-rainbow-delimiters-depth-5">)</span>
+                 <span class="org-rainbow-delimiters-depth-5">(</span>- col 1<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
+         <span class="org-rainbow-delimiters-depth-4">(</span>pascal <span class="org-rainbow-delimiters-depth-5">(</span>- row 1<span class="org-rainbow-delimiters-depth-5">)</span>
+                 col<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
 
-<span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">iterative, a little mathematics</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">iterative, a little mathematics</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">pascal-iter</span> row col)
-  (<span style="color: #859900;">if</span> (<span style="color: #859900;">or</span> (= row 0)
-          (= col 0)
-          (= row 1)
-          (= row col))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">pascal-iter</span> row col<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">or</span> <span class="org-rainbow-delimiters-depth-4">(</span>= row 0<span class="org-rainbow-delimiters-depth-4">)</span>
+          <span class="org-rainbow-delimiters-depth-4">(</span>= col 0<span class="org-rainbow-delimiters-depth-4">)</span>
+          <span class="org-rainbow-delimiters-depth-4">(</span>= row 1<span class="org-rainbow-delimiters-depth-4">)</span>
+          <span class="org-rainbow-delimiters-depth-4">(</span>= row col<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
       1
-      (pascal-iter-iter row 1 row col)))
+      <span class="org-rainbow-delimiters-depth-3">(</span>pascal-iter-iter row 1 row col<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-<span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">this looks a little bit weird because I just don't wanna calculate the factorials</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">this looks a little bit weird because I just don't wanna calculate the factorials</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">pascal-iter-iter</span> row deno num count)
-  (<span style="color: #859900;">if</span> (= count 1) <span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">do the division when count hits 1</span>
-      (/ num deno)
-      (pascal-iter-iter (- row 1)
-                        (* deno count)
-                        (* num
-                           (- row 1))
-                        (- count 1))))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">pascal-iter-iter</span> row deno num count<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>= count 1<span class="org-rainbow-delimiters-depth-3">)</span> <span class="org-comment-delimiter">;; </span><span class="org-comment">do the division when count hits 1</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span>/ num deno<span class="org-rainbow-delimiters-depth-3">)</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span>pascal-iter-iter <span class="org-rainbow-delimiters-depth-4">(</span>- row 1<span class="org-rainbow-delimiters-depth-4">)</span>
+                        <span class="org-rainbow-delimiters-depth-4">(</span>* deno count<span class="org-rainbow-delimiters-depth-4">)</span>
+                        <span class="org-rainbow-delimiters-depth-4">(</span>* num
+                           <span class="org-rainbow-delimiters-depth-5">(</span>- row 1<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
+                        <span class="org-rainbow-delimiters-depth-4">(</span>- count 1<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
 </div>
@@ -640,17 +646,17 @@ p.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-scheme">[Entering #[compound-procedure 2 p]
-    Args: 4.9999999999999996e-2]
-[Entering #[compound-procedure 2 p]
-    Args: .1495]
-[Entering #[compound-procedure 2 p]
-    Args: .4351345505]
-[Entering #[compound-procedure 2 p]
-    Args: .9758465331678772]
-[Entering #[compound-procedure 2 p]
-    Args: -.7895631144708228]
-<span style="color: #93a1a1; font-style: italic;">;</span><span style="color: #93a1a1; font-style: italic;">Value: -.39980345741334</span>
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">[</span>Entering #<span class="org-rainbow-delimiters-depth-2">[</span>compound-procedure 2 p<span class="org-rainbow-delimiters-depth-2">]</span>
+    Args: 4.9999999999999996e-2<span class="org-rainbow-delimiters-depth-1">]</span>
+<span class="org-rainbow-delimiters-depth-1">[</span>Entering #<span class="org-rainbow-delimiters-depth-2">[</span>compound-procedure 2 p<span class="org-rainbow-delimiters-depth-2">]</span>
+    Args: .1495<span class="org-rainbow-delimiters-depth-1">]</span>
+<span class="org-rainbow-delimiters-depth-1">[</span>Entering #<span class="org-rainbow-delimiters-depth-2">[</span>compound-procedure 2 p<span class="org-rainbow-delimiters-depth-2">]</span>
+    Args: .4351345505<span class="org-rainbow-delimiters-depth-1">]</span>
+<span class="org-rainbow-delimiters-depth-1">[</span>Entering #<span class="org-rainbow-delimiters-depth-2">[</span>compound-procedure 2 p<span class="org-rainbow-delimiters-depth-2">]</span>
+    Args: .9758465331678772<span class="org-rainbow-delimiters-depth-1">]</span>
+<span class="org-rainbow-delimiters-depth-1">[</span>Entering #<span class="org-rainbow-delimiters-depth-2">[</span>compound-procedure 2 p<span class="org-rainbow-delimiters-depth-2">]</span>
+    Args: -.7895631144708228<span class="org-rainbow-delimiters-depth-1">]</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: -.39980345741334</span>
 </pre>
 </div>
 </div>
@@ -679,18 +685,18 @@ squared <code>b</code> and halved <code>n-1</code>.</li>
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-scheme">(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">even?</span> n) (= (remainder n 2) 0))
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">even?</span> n<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>= <span class="org-rainbow-delimiters-depth-3">(</span>remainder n 2<span class="org-rainbow-delimiters-depth-3">)</span> 0<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">fast-expt</span> b n) (fast-expt-iter 1 b n))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">fast-expt</span> b n<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>fast-expt-iter 1 b n<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">fast-expt-iter</span> a b n)
-  (<span style="color: #859900;">cond</span> ((= n 0) a)
-        ((even? n) (fast-expt-iter a
-                                   (* b b)
-                                   (/ n 2)))
-        (<span style="color: #859900;">else</span> (fast-expt-iter (* a b)
-                              (* b b)
-                              (/ (- n 1) 2)))))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">fast-expt-iter</span> a b n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>= n 0<span class="org-rainbow-delimiters-depth-4">)</span> a<span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>even? n<span class="org-rainbow-delimiters-depth-4">)</span> <span class="org-rainbow-delimiters-depth-4">(</span>fast-expt-iter a
+                                   <span class="org-rainbow-delimiters-depth-5">(</span>* b b<span class="org-rainbow-delimiters-depth-5">)</span>
+                                   <span class="org-rainbow-delimiters-depth-5">(</span>/ n 2<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">else</span> <span class="org-rainbow-delimiters-depth-4">(</span>fast-expt-iter <span class="org-rainbow-delimiters-depth-5">(</span>* a b<span class="org-rainbow-delimiters-depth-5">)</span>
+                              <span class="org-rainbow-delimiters-depth-5">(</span>* b b<span class="org-rainbow-delimiters-depth-5">)</span>
+                              <span class="org-rainbow-delimiters-depth-5">(</span>/ <span class="org-rainbow-delimiters-depth-6">(</span>- n 1<span class="org-rainbow-delimiters-depth-6">)</span> 2<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
 </div>
@@ -703,34 +709,34 @@ squared <code>b</code> and halved <code>n-1</code>.</li>
 <div class="outline-text-2" id="text-18">
 <div class="org-src-container">
 
-<pre class="src src-scheme">(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">double</span> n) (+ n n))
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">halve</span> n) (/ n 2))
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">double</span> n<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>+ n n<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">halve</span> n<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>/ n 2<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">even?</span> n) (= (remainder n 2) 0))
-<span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">recursive</span>
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">x-recursive</span> a b)
-  (<span style="color: #859900;">if</span> (&lt; b 0)
-      (- (x-recursive-iter a
-                           (abs b)))
-      (x-recursive-iter a b)))
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">x-recursive-iter</span> a b)
-  (<span style="color: #859900;">cond</span> ((= b 1) a)
-        ((even? b) (double (x-recursive-iter a (halve b))))
-        (<span style="color: #859900;">else</span> (+ a (x-recursive-iter a (- b 1))))))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">even?</span> n<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>= <span class="org-rainbow-delimiters-depth-3">(</span>remainder n 2<span class="org-rainbow-delimiters-depth-3">)</span> 0<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">recursive</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">x-recursive</span> a b<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>&lt; b 0<span class="org-rainbow-delimiters-depth-3">)</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span>- <span class="org-rainbow-delimiters-depth-4">(</span>x-recursive-iter a
+                           <span class="org-rainbow-delimiters-depth-5">(</span>abs b<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span>x-recursive-iter a b<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">x-recursive-iter</span> a b<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>= b 1<span class="org-rainbow-delimiters-depth-4">)</span> a<span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>even? b<span class="org-rainbow-delimiters-depth-4">)</span> <span class="org-rainbow-delimiters-depth-4">(</span>double <span class="org-rainbow-delimiters-depth-5">(</span>x-recursive-iter a <span class="org-rainbow-delimiters-depth-6">(</span>halve b<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">else</span> <span class="org-rainbow-delimiters-depth-4">(</span>+ a <span class="org-rainbow-delimiters-depth-5">(</span>x-recursive-iter a <span class="org-rainbow-delimiters-depth-6">(</span>- b 1<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-<span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">iterative</span>
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">x-iterative</span> a b)
-  (<span style="color: #859900;">if</span> (&lt; b 0)
-      (- (x-iter 0 a (abs b)))
-      (x-iter 0 a b)))
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">x-iter</span> n a b)
-  (<span style="color: #859900;">cond</span> ((= b 0) n)
-        ((even? b) (x-iter n
-                           (double a)
-                           (halve b)))
-        (<span style="color: #859900;">else</span> (x-iter (+ n a)
+<span class="org-comment-delimiter">;; </span><span class="org-comment">iterative</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">x-iterative</span> a b<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>&lt; b 0<span class="org-rainbow-delimiters-depth-3">)</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span>- <span class="org-rainbow-delimiters-depth-4">(</span>x-iter 0 a <span class="org-rainbow-delimiters-depth-5">(</span>abs b<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span>x-iter 0 a b<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">x-iter</span> n a b<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>= b 0<span class="org-rainbow-delimiters-depth-4">)</span> n<span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>even? b<span class="org-rainbow-delimiters-depth-4">)</span> <span class="org-rainbow-delimiters-depth-4">(</span>x-iter n
+                           <span class="org-rainbow-delimiters-depth-5">(</span>double a<span class="org-rainbow-delimiters-depth-5">)</span>
+                           <span class="org-rainbow-delimiters-depth-5">(</span>halve b<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">else</span> <span class="org-rainbow-delimiters-depth-4">(</span>x-iter <span class="org-rainbow-delimiters-depth-5">(</span>+ n a<span class="org-rainbow-delimiters-depth-5">)</span>
                       a
-                      (- b 1)))))
+                      <span class="org-rainbow-delimiters-depth-5">(</span>- b 1<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
 <p>
@@ -759,24 +765,24 @@ q' &= 2pq + q^2
 
 <div class="org-src-container">
 
-<pre class="src src-scheme">(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">square</span> x) (* x x))
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">even?</span> n) (= (remainder n 2) 0))
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">square</span> x<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>* x x<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">even?</span> n<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>= <span class="org-rainbow-delimiters-depth-3">(</span>remainder n 2<span class="org-rainbow-delimiters-depth-3">)</span> 0<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">fib</span> n)
-  (fib-iter 1 0 0 1 n))
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">fib-iter</span> a b p q count)
-  (<span style="color: #859900;">cond</span> ((= count 0) b)
-        ((even? count)
-         (fib-iter a
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">fib</span> n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>fib-iter 1 0 0 1 n<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">fib-iter</span> a b p q count<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>= count 0<span class="org-rainbow-delimiters-depth-4">)</span> b<span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>even? count<span class="org-rainbow-delimiters-depth-4">)</span>
+         <span class="org-rainbow-delimiters-depth-4">(</span>fib-iter a
                    b
-                   (+ (square p) (square q))
-                   (+ (square q) (* 2 p q))
-                   (/ count 2)))
-        (<span style="color: #859900;">else</span> (fib-iter (+ (* b q) (* a q) (* a p))
-                        (+ (* b p) (* a q))
+                   <span class="org-rainbow-delimiters-depth-5">(</span>+ <span class="org-rainbow-delimiters-depth-6">(</span>square p<span class="org-rainbow-delimiters-depth-6">)</span> <span class="org-rainbow-delimiters-depth-6">(</span>square q<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span>
+                   <span class="org-rainbow-delimiters-depth-5">(</span>+ <span class="org-rainbow-delimiters-depth-6">(</span>square q<span class="org-rainbow-delimiters-depth-6">)</span> <span class="org-rainbow-delimiters-depth-6">(</span>* 2 p q<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span>
+                   <span class="org-rainbow-delimiters-depth-5">(</span>/ count 2<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">else</span> <span class="org-rainbow-delimiters-depth-4">(</span>fib-iter <span class="org-rainbow-delimiters-depth-5">(</span>+ <span class="org-rainbow-delimiters-depth-6">(</span>* b q<span class="org-rainbow-delimiters-depth-6">)</span> <span class="org-rainbow-delimiters-depth-6">(</span>* a q<span class="org-rainbow-delimiters-depth-6">)</span> <span class="org-rainbow-delimiters-depth-6">(</span>* a p<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span>
+                        <span class="org-rainbow-delimiters-depth-5">(</span>+ <span class="org-rainbow-delimiters-depth-6">(</span>* b p<span class="org-rainbow-delimiters-depth-6">)</span> <span class="org-rainbow-delimiters-depth-6">(</span>* a q<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span>
                         p
                         q
-                        (- count 1)))))
+                        <span class="org-rainbow-delimiters-depth-5">(</span>- count 1<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
 </div>
@@ -790,11 +796,11 @@ For applicative order substitution, 4 times.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-scheme">(gcd 206 40) <span style="color: #93a1a1; font-style: italic;">;</span><span style="color: #93a1a1; font-style: italic;">(gcd 40 (remainder 206 40))</span>
-(gcd 40 6)   <span style="color: #93a1a1; font-style: italic;">;</span><span style="color: #93a1a1; font-style: italic;">(gcd 6 (remainder 40 6))</span>
-(gcd 6 4)    <span style="color: #93a1a1; font-style: italic;">;</span><span style="color: #93a1a1; font-style: italic;">(gcd 4 (remainder 6 4))</span>
-(gcd 4 2)    <span style="color: #93a1a1; font-style: italic;">;</span><span style="color: #93a1a1; font-style: italic;">(gcd 2 (remainder 4 2))</span>
-(gcd 2 0)    <span style="color: #93a1a1; font-style: italic;">;</span><span style="color: #93a1a1; font-style: italic;">no remainder call</span>
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>gcd 206 40<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-comment-delimiter">;</span><span class="org-comment">(gcd 40 (remainder 206 40))</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>gcd 40 6<span class="org-rainbow-delimiters-depth-1">)</span>   <span class="org-comment-delimiter">;</span><span class="org-comment">(gcd 6 (remainder 40 6))</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>gcd 6 4<span class="org-rainbow-delimiters-depth-1">)</span>    <span class="org-comment-delimiter">;</span><span class="org-comment">(gcd 4 (remainder 6 4))</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>gcd 4 2<span class="org-rainbow-delimiters-depth-1">)</span>    <span class="org-comment-delimiter">;</span><span class="org-comment">(gcd 2 (remainder 4 2))</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>gcd 2 0<span class="org-rainbow-delimiters-depth-1">)</span>    <span class="org-comment-delimiter">;</span><span class="org-comment">no remainder call</span>
 2
 </pre>
 </div>
@@ -809,25 +815,25 @@ For normal order, use the following symbols to track the process,
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-scheme">(gcd 206 40)
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>gcd 206 40<span class="org-rainbow-delimiters-depth-1">)</span>
 
-(gcd 40 t1)
+<span class="org-rainbow-delimiters-depth-1">(</span>gcd 40 t1<span class="org-rainbow-delimiters-depth-1">)</span>
 
-if (= t1 0)   <span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">#f +1</span>
+if <span class="org-rainbow-delimiters-depth-1">(</span>= t1 0<span class="org-rainbow-delimiters-depth-1">)</span>   <span class="org-comment-delimiter">;; </span><span class="org-comment">#f +1</span>
 
-(gcd t1 t2)
+<span class="org-rainbow-delimiters-depth-1">(</span>gcd t1 t2<span class="org-rainbow-delimiters-depth-1">)</span>
 
-if (= t2 0)  <span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">#f +2</span>
+if <span class="org-rainbow-delimiters-depth-1">(</span>= t2 0<span class="org-rainbow-delimiters-depth-1">)</span>  <span class="org-comment-delimiter">;; </span><span class="org-comment">#f +2</span>
 
-(gcd t2 t3)
+<span class="org-rainbow-delimiters-depth-1">(</span>gcd t2 t3<span class="org-rainbow-delimiters-depth-1">)</span>
 
-if (= t3 0)  <span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">#f +4</span>
+if <span class="org-rainbow-delimiters-depth-1">(</span>= t3 0<span class="org-rainbow-delimiters-depth-1">)</span>  <span class="org-comment-delimiter">;; </span><span class="org-comment">#f +4</span>
 
-(gcd t3 t4)
+<span class="org-rainbow-delimiters-depth-1">(</span>gcd t3 t4<span class="org-rainbow-delimiters-depth-1">)</span>
 
-if (= t4 0) <span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">#t +7</span>
+if <span class="org-rainbow-delimiters-depth-1">(</span>= t4 0<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-comment-delimiter">;; </span><span class="org-comment">#t +7</span>
 
-t3     <span style="color: #93a1a1; font-style: italic;">;; </span><span style="color: #93a1a1; font-style: italic;">+4</span>
+t3     <span class="org-comment-delimiter">;; </span><span class="org-comment">+4</span>
 </pre>
 </div>
 <p>
@@ -840,32 +846,37 @@ t3     <span style="color: #93a1a1; font-style: italic;">;; </span><span style="
 <div class="outline-text-2" id="text-21">
 <div class="org-src-container">
 
-<pre class="src src-scheme">(load <span style="color: #2aa198;">"utils.scm"</span>) <span style="color: #93a1a1; font-style: italic;">; </span><span style="color: #93a1a1; font-style: italic;">square</span>
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"utils.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-comment-delimiter">; </span><span class="org-comment">square</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">smallest-divisor</span> n) (find-divisor n 2))
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">find-divisor</span> n test-divisor)
-  (<span style="color: #859900;">cond</span> ((&gt; (square test-divisor) n) n)
-        ((divides? test-divisor n) test-divisor)
-        (<span style="color: #859900;">else</span> (find-divisor n (+ test-divisor 1)))))
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">divides?</span> a b) (= (remainder b a) 0))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">next-divisor</span> n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>= n 2<span class="org-rainbow-delimiters-depth-3">)</span>
+      3
+      <span class="org-rainbow-delimiters-depth-3">(</span>+ n 2<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">prime?</span> n)
-  (= n (smallest-divisor n)))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">smallest-divisor</span> n<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>find-divisor n 2<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">find-divisor</span> n test-divisor<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>&gt; <span class="org-rainbow-delimiters-depth-5">(</span>square test-divisor<span class="org-rainbow-delimiters-depth-5">)</span> n<span class="org-rainbow-delimiters-depth-4">)</span> n<span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>divides? test-divisor n<span class="org-rainbow-delimiters-depth-4">)</span> test-divisor<span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">else</span> <span class="org-rainbow-delimiters-depth-4">(</span>find-divisor n <span class="org-rainbow-delimiters-depth-5">(</span>next-divisor test-divisor<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">divides?</span> a b<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>= <span class="org-rainbow-delimiters-depth-3">(</span>remainder b a<span class="org-rainbow-delimiters-depth-3">)</span> 0<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">prime?</span> n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>= n <span class="org-rainbow-delimiters-depth-3">(</span>smallest-divisor n<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
 <div class="org-src-container">
 
-<pre class="src src-scheme">1 ]=&gt; (smallest-divisor 199)
+<pre class="src src-scheme">1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>smallest-divisor 199<span class="org-rainbow-delimiters-unmatched">)</span>
 
-<span style="color: #93a1a1; font-style: italic;">;</span><span style="color: #93a1a1; font-style: italic;">Value: 199</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: 199</span>
 
-1 ]=&gt; (smallest-divisor 1999)
+1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>smallest-divisor 1999<span class="org-rainbow-delimiters-unmatched">)</span>
 
-<span style="color: #93a1a1; font-style: italic;">;</span><span style="color: #93a1a1; font-style: italic;">Value: 1999</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: 1999</span>
 
-1 ]=&gt; (smallest-divisor 19999)
+1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>smallest-divisor 19999<span class="org-rainbow-delimiters-unmatched">)</span>
 
-<span style="color: #93a1a1; font-style: italic;">;</span><span style="color: #93a1a1; font-style: italic;">Value: 7</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: 7</span>
 </pre>
 </div>
 </div>
@@ -881,34 +892,34 @@ only print out prime numbers. Use
 </p>
 <div class="org-src-container">
 
-<pre class="src src-scheme">(load <span style="color: #2aa198;">"smallest-divisor.scm"</span>)
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"smallest-divisor.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">even?</span> n) (= (remainder n 2) 0))
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">time-prime-test</span> n)
-  (start-prime-test n (real-time-clock)))
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">start-prime-test</span> n start-time)
-  (<span style="color: #859900;">if</span> (prime? n)
-      (report-prime n (- (real-time-clock) start-time))))
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">report-prime</span> n elapsed-time)
-  (newline)(display n)  (display <span style="color: #2aa198;">" *** "</span>) (display elapsed-time))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">even?</span> n<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>= <span class="org-rainbow-delimiters-depth-3">(</span>remainder n 2<span class="org-rainbow-delimiters-depth-3">)</span> 0<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">time-prime-test</span> n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>start-prime-test n <span class="org-rainbow-delimiters-depth-3">(</span>real-time-clock<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">start-prime-test</span> n start-time<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>prime? n<span class="org-rainbow-delimiters-depth-3">)</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span>report-prime n <span class="org-rainbow-delimiters-depth-4">(</span>- <span class="org-rainbow-delimiters-depth-5">(</span>real-time-clock<span class="org-rainbow-delimiters-depth-5">)</span> start-time<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">report-prime</span> n elapsed-time<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>newline<span class="org-rainbow-delimiters-depth-2">)(</span>display n<span class="org-rainbow-delimiters-depth-2">)</span>  <span class="org-rainbow-delimiters-depth-2">(</span>display <span class="org-string">" *** "</span><span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>display elapsed-time<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(<span style="color: #859900;">define</span> (<span style="color: #268bd2;">search-for-primes</span> start end)
-  (<span style="color: #859900;">if</span> (&lt; start end)
-      (<span style="color: #859900;">cond</span> ((even? start)
-             (search-for-primes (+ start 1) end))
-            (<span style="color: #859900;">else</span> (time-prime-test start)
-                  (search-for-primes (+ start 2)
-                                     end)))))
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">search-for-primes</span> start end<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>&lt; start end<span class="org-rainbow-delimiters-depth-3">)</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-rainbow-delimiters-depth-5">(</span>even? start<span class="org-rainbow-delimiters-depth-5">)</span>
+             <span class="org-rainbow-delimiters-depth-5">(</span>search-for-primes <span class="org-rainbow-delimiters-depth-6">(</span>+ start 1<span class="org-rainbow-delimiters-depth-6">)</span> end<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
+            <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-keyword">else</span> <span class="org-rainbow-delimiters-depth-5">(</span>time-prime-test start<span class="org-rainbow-delimiters-depth-5">)</span>
+                  <span class="org-rainbow-delimiters-depth-5">(</span>search-for-primes <span class="org-rainbow-delimiters-depth-6">(</span>+ start 2<span class="org-rainbow-delimiters-depth-6">)</span>
+                                     end<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-(search-for-primes 1000 1020)
-(search-for-primes 10000 10038)
-(search-for-primes 100000 100044)
-(search-for-primes 1000000 1000038)
+<span class="org-rainbow-delimiters-depth-1">(</span>search-for-primes 1000 1020<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>search-for-primes 10000 10038<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>search-for-primes 100000 100044<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>search-for-primes 1000000 1000038<span class="org-rainbow-delimiters-depth-1">)</span>
 
-(search-for-primes 1000000000 1000000022)
-(search-for-primes 10000000000 10000000062)
-(search-for-primes 100000000000 100000000058)
-(search-for-primes 1000000000000 1000000000064)
+<span class="org-rainbow-delimiters-depth-1">(</span>search-for-primes 1000000000 1000000022<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>search-for-primes 10000000000 10000000062<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>search-for-primes 100000000000 100000000058<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>search-for-primes 1000000000000 1000000000064<span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
 <p>
@@ -946,6 +957,264 @@ cost conforms to growth of \(\sqrt(10)\).
 </div>
 </div>
 </div>
+<div id="outline-container-orgheadline25" class="outline-2">
+<h2 id="orgheadline25"><span class="section-number-2">23</span> Exercise 1.23</h2>
+<div class="outline-text-2" id="text-23">
+<div class="org-src-container">
+
+<pre class="src src-scheme">1009 *** 0
+1013 *** 0
+1019 *** 0
+10007 *** 0
+10009 *** 0
+10037 *** 0
+100003 *** 0
+100019 *** 0
+100043 *** 0
+1000003 *** 1
+1000033 *** 1
+1000037 *** 1
+1000000007 *** 22
+1000000009 *** 25
+1000000021 *** 23
+10000000019 *** 64
+10000000033 *** 69
+10000000061 *** 71
+100000000003 *** 205
+100000000019 *** 208
+100000000057 *** 213
+1000000000039 *** 673
+1000000000061 *** 658
+1000000000063 *** 654
+</pre>
+</div>
+<p>
+Compared with exercise 1.22, we can find that the
+<code>next</code> did bring some improvements, but not exactly
+halved the running time. Well, my point is, the
+exact executing time of the algorithm can be
+affected by many other factors.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline26" class="outline-2">
+<h2 id="orgheadline26"><span class="section-number-2">24</span> Exercise 1.24</h2>
+<div class="outline-text-2" id="text-24">
+<ol class="org-ol">
+<li>fast prime:</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"utils.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">fermat-test</span> n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-function-name">try-it</span> a<span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-3">(</span>= <span class="org-rainbow-delimiters-depth-4">(</span>expmod a n n<span class="org-rainbow-delimiters-depth-4">)</span> a<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>try-it <span class="org-rainbow-delimiters-depth-3">(</span>+ 1 <span class="org-rainbow-delimiters-depth-4">(</span>random <span class="org-rainbow-delimiters-depth-5">(</span>- n 1<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">fast-prime?</span> n times<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>= times 0<span class="org-rainbow-delimiters-depth-4">)</span> true<span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>fermat-test n<span class="org-rainbow-delimiters-depth-4">)</span> <span class="org-rainbow-delimiters-depth-4">(</span>fast-prime? n <span class="org-rainbow-delimiters-depth-5">(</span>- times 1<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">else</span> false<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<ol class="org-ol">
+<li>test</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"fast-prime.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">even?</span> n<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>= <span class="org-rainbow-delimiters-depth-3">(</span>remainder n 2<span class="org-rainbow-delimiters-depth-3">)</span> 0<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">time-prime-test</span> n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>start-prime-test n <span class="org-rainbow-delimiters-depth-3">(</span>real-time-clock<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">start-prime-test</span> n start-time<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>fast-prime? n 1000<span class="org-rainbow-delimiters-depth-3">)</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span>report-prime n <span class="org-rainbow-delimiters-depth-4">(</span>- <span class="org-rainbow-delimiters-depth-5">(</span>real-time-clock<span class="org-rainbow-delimiters-depth-5">)</span> start-time<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">report-prime</span> n elapsed-time<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>newline<span class="org-rainbow-delimiters-depth-2">)(</span>display n<span class="org-rainbow-delimiters-depth-2">)</span>  <span class="org-rainbow-delimiters-depth-2">(</span>display <span class="org-string">" *** "</span><span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">(</span>display elapsed-time<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span>time-prime-test 1000000007<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>time-prime-test 1000000009<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>time-prime-test 1000000021<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>time-prime-test 10000000019<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>time-prime-test 10000000033<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>time-prime-test 10000000061<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>time-prime-test 100000000003<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>time-prime-test 100000000019<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>time-prime-test 100000000057<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>time-prime-test 1000000000039<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>time-prime-test 1000000000061<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>time-prime-test 1000000000063<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<ol class="org-ol">
+<li>result</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-scheme">1000000007 *** 67
+1000000009 *** 76
+1000000021 *** 64
+10000000019 *** 79
+10000000033 *** 82
+10000000061 *** 82
+100000000003 *** 85
+100000000019 *** 84
+100000000057 *** 86
+1000000000039 *** 87
+1000000000061 *** 93
+1000000000063 *** 94
+</pre>
+</div>
+<p>
+For every number, we run fermat test 1000 times
+(just to make the time easier to compare). As we
+can see, when the test number increase by 10
+times, the extra time needed is approximately \(log
+10\).
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline27" class="outline-2">
+<h2 id="orgheadline27"><span class="section-number-2">25</span> Exercise 1.25</h2>
+<div class="outline-text-2" id="text-25">
+<p>
+Use the <code>fast-expt</code> procedure, a very large number
+may be introduced to the function <code>remainder</code>, which
+will definitely slow down the computation
+markedly.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline28" class="outline-2">
+<h2 id="orgheadline28"><span class="section-number-2">26</span> Exercise 1.26</h2>
+<div class="outline-text-2" id="text-26">
+<p>
+Louis's approach doesn't introduce a \(\Theta(log n)\)
+process, but rather a \(\Theta(n)\) process. Though
+it does halve the <code>exp</code>, but the expmod has been
+calculated twice.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline29" class="outline-2">
+<h2 id="orgheadline29"><span class="section-number-2">27</span> Exercise 1.27</h2>
+<div class="outline-text-2" id="text-27">
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"utils.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">test-carmichael</span> n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-function-name">test-iter</span> current<span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-rainbow-delimiters-depth-5">(</span>= current 1<span class="org-rainbow-delimiters-depth-5">)</span> true<span class="org-rainbow-delimiters-depth-4">)</span>
+          <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-rainbow-delimiters-depth-5">(</span>= <span class="org-rainbow-delimiters-depth-6">(</span>expmod current n n<span class="org-rainbow-delimiters-depth-6">)</span> current<span class="org-rainbow-delimiters-depth-5">)</span>
+           <span class="org-rainbow-delimiters-depth-5">(</span>test-iter <span class="org-rainbow-delimiters-depth-6">(</span>- current 1<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
+          <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-keyword">else</span> false<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>display n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>test-iter <span class="org-rainbow-delimiters-depth-4">(</span>- n 1<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span>display <span class="org-string">" Fooled.\n"</span><span class="org-rainbow-delimiters-depth-3">)</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span>display <span class="org-string">" Not Fooled.\n"</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">if the number really fool the test, then true is returned.</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span>test-carmichael 561<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>test-carmichael 1105<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>test-carmichael 1729<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>test-carmichael 2465<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>test-carmichael 2821<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>test-carmichael 6601<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<p>
+They really fooled the test!
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme">561 Fooled.
+1105 Fooled.
+1729 Fooled.
+2465 Fooled.
+2821 Fooled.
+6601 Fooled.
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline30" class="outline-2">
+<h2 id="orgheadline30"><span class="section-number-2">28</span> Exercise 1.28</h2>
+<div class="outline-text-2" id="text-28">
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"utils.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">non-trivial-square-root?</span> num m<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">and</span> <span class="org-rainbow-delimiters-depth-3">(</span>not <span class="org-rainbow-delimiters-depth-4">(</span>= num 1<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+       <span class="org-rainbow-delimiters-depth-3">(</span>not <span class="org-rainbow-delimiters-depth-4">(</span>= num <span class="org-rainbow-delimiters-depth-5">(</span>- m 1<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+       <span class="org-rainbow-delimiters-depth-3">(</span>= 1 <span class="org-rainbow-delimiters-depth-4">(</span>remainder
+             <span class="org-rainbow-delimiters-depth-5">(</span>square num<span class="org-rainbow-delimiters-depth-5">)</span>
+             m<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">expmod</span> base exp m<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>= exp 0<span class="org-rainbow-delimiters-depth-4">)</span> 1<span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>even? exp<span class="org-rainbow-delimiters-depth-4">)</span>
+         <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-5">(</span>non-trivial-square-root? base m<span class="org-rainbow-delimiters-depth-5">)</span>
+             0
+             <span class="org-rainbow-delimiters-depth-5">(</span>remainder
+              <span class="org-rainbow-delimiters-depth-6">(</span>square
+               <span class="org-rainbow-delimiters-depth-7">(</span>expmod base <span class="org-rainbow-delimiters-depth-8">(</span>/ exp 2<span class="org-rainbow-delimiters-depth-8">)</span> m<span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span>
+              m<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">else</span>
+         <span class="org-rainbow-delimiters-depth-4">(</span>remainder
+          <span class="org-rainbow-delimiters-depth-5">(</span>* base
+             <span class="org-rainbow-delimiters-depth-6">(</span>expmod base <span class="org-rainbow-delimiters-depth-7">(</span>- exp 1<span class="org-rainbow-delimiters-depth-7">)</span> m<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span>
+          m<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">miller-rabin-test</span> n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>= <span class="org-rainbow-delimiters-depth-3">(</span>expmod <span class="org-rainbow-delimiters-depth-4">(</span>+ 1 <span class="org-rainbow-delimiters-depth-5">(</span>random <span class="org-rainbow-delimiters-depth-6">(</span>- n 1<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span> <span class="org-rainbow-delimiters-depth-4">(</span>- n 1<span class="org-rainbow-delimiters-depth-4">)</span> n<span class="org-rainbow-delimiters-depth-3">)</span> 1<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">fast-prime?</span> n times<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">cond</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>= times 0<span class="org-rainbow-delimiters-depth-4">)</span> true<span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>miller-rabin-test n<span class="org-rainbow-delimiters-depth-4">)</span> <span class="org-rainbow-delimiters-depth-4">(</span>fast-prime? n <span class="org-rainbow-delimiters-depth-5">(</span>- times 1<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">else</span> false<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">do-test</span> n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>display n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>fast-prime? n 50<span class="org-rainbow-delimiters-depth-3">)</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span>display <span class="org-string">" is prime.\n"</span><span class="org-rainbow-delimiters-depth-3">)</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span>display <span class="org-string">" is not a prime.\n"</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>do-test 561<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>do-test 1105<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>do-test 1729<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>do-test 2465<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>do-test 2821<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>do-test 6601<span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span>display <span class="org-string">"test true primes\n"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>do-test 1000000007<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>do-test 1000000009<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>do-test 1000000021<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>do-test 10000000019<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<p>
+I did the test for 50 times, it worked quite well.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme">561 is not a prime.
+1105 is not a prime.
+1729 is not a prime.
+2465 is not a prime.
+2821 is not a prime.
+6601 is not a prime.
+test true primes
+1000000007 is prime.
+1000000009 is prime.
+1000000021 is prime.
+10000000019 is prime.
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <div id='disqus_thread'></div>
@@ -964,8 +1233,8 @@ cost conforms to growth of \(\sqrt(10)\).
   <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></p>
 </noscript><div class='footer'>
 Copyright 2016 &copy; <a href='https://github.com/kevin5396'>Kangwei Ling</a><br/>
-Last updated 2016-09-13 <br/>
-Built with <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4) <br/>
+Last updated 2016-09-22 <br/>
+Built with <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.3.6) <br/>
 </div>
 <script type='text/javascript'>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
