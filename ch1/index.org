@@ -526,3 +526,61 @@ test true primes
 1000000021 is prime.
 10000000019 is prime.
 #+END_SRC
+** Exercise 1.29
+Calculate the integral by Simpson's Rule:
+#+INCLUDE: "simpson.scm" src scheme
+Compare the result with the integral function provided in the book:
+#+BEGIN_SRC scheme
+1 ]=> (simpson-integral cube 0 1 100)
+
+;Value: .25000000000000044
+
+1 ]=> (integral cube 0 1 0.01)
+
+;Value: .24998750000000042
+
+1 ]=> (simpson-integral cube 0 1 1000)
+
+;Value: .2500000000000006
+
+1 ]=> (integral cube 0 1 0.001)
+
+;Value: .249999875000001
+
+#+END_SRC
+As we can see, the result calculated via Simpson's Rule is much more
+precise (0.25 is the ultimate answer).
+** Exercise 1.30
+Fill in the blanks.
+#+INCLUDE: "sum-iter.scm" src scheme
+** Exercise 1.31
+Firstly define the product procedure.
+#+INCLUDE: "product.scm" src scheme
+Modified it to be a iterative process just like =sum=
+#+INCLUDE: "product-iter.scm" src scheme
+Use the product procedure to calculate factorial and approximate $\pi$,
+#+INCLUDE: "ex1-31.scm" src scheme
+Calculating the $\pi$! (use the iterative version, otherwise the
+recursive depth may to too deep when n reaches numbers like 100000)
+#+BEGIN_SRC scheme
+1 ]=> (pi 10)
+;Value: 3.3023935500125976
+1 ]=> (pi 100)
+;Value: 3.157339689217565
+1 ]=> (pi 1000)
+;Value: 3.143163842419198
+1 ]=> (pi 10000)
+;Value: 3.1417497371492673
+#+END_SRC
+** Exercise 1.32
+It's getting more and more interesting! :).
+#+INCLUDE: "accumulate.scm" src scheme
+Once we have the implementation of =accumulate=, =sum= and =product= are
+very easy to code!
+#+INCLUDE: "ex1-32.scm" src scheme
+** Exercise 1.33
+We only need to make a little bit modifications when use the combiner
+to combine terms.
+#+INCLUDE: "filtered-accumulate.scm" src scheme
+Then we can solve the two problems.
+#+INCLUDE: "ex1-33.scm" src scheme

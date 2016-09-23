@@ -15,3 +15,9 @@
           (* base
              (expmod base (- exp 1) m))
           m))))
+
+(define (cube x) (* x x x))
+
+(define (id x) x)
+
+(define (inc x) (+ x 1))
