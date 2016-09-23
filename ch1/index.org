@@ -560,7 +560,7 @@ Modified it to be a iterative process just like =sum=
 #+INCLUDE: "product-iter.scm" src scheme
 Use the product procedure to calculate factorial and approximate $\pi$,
 #+INCLUDE: "ex1-31.scm" src scheme
-Calculating the $\pi$! (use the iterative version, otherwise the
+Calculating the $\pi$ ! (use the iterative version, otherwise the
 recursive depth may to too deep when n reaches numbers like 100000)
 #+BEGIN_SRC scheme
 1 ]=> (pi 10)
@@ -579,7 +579,7 @@ Once we have the implementation of =accumulate=, =sum= and =product= are
 very easy to code!
 #+INCLUDE: "ex1-32.scm" src scheme
 ** Exercise 1.33
-We only need to make a little bit modifications when use the combiner
+We only need to make some minor modifications when use the combiner
 to combine terms.
 #+INCLUDE: "filtered-accumulate.scm" src scheme
 Then we can solve the two problems.
