@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>index</title>
-<!-- 2016-09-23 Fri 22:02 -->
+<!-- 2016-09-24 Sat 11:45 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="kevin5396" />
@@ -225,6 +225,12 @@ for the JavaScript code in this tag.
 <li><a href="#sec-31">31. Exercise 1.31</a></li>
 <li><a href="#sec-32">32. Exercise 1.32</a></li>
 <li><a href="#sec-33">33. Exercise 1.33</a></li>
+<li><a href="#sec-34">34. Exercise 1.34</a></li>
+<li><a href="#sec-35">35. Exercise 1.35</a></li>
+<li><a href="#sec-36">36. Exercise 1.36</a></li>
+<li><a href="#sec-37">37. Exercise 1.37</a></li>
+<li><a href="#sec-38">38. Exercise 1.38</a></li>
+<li><a href="#sec-39">39. Exercise 1.39</a></li>
 </ul>
 </div>
 </div>
@@ -1485,6 +1491,295 @@ Then we can solve the two problems.
 </div>
 </div>
 </div>
+<div id="outline-container-sec-34" class="outline-2">
+<h2 id="sec-34"><span class="section-number-2">34</span> Exercise 1.34</h2>
+<div class="outline-text-2" id="text-34">
+<p>
+The interpreter will utter an error, because when we evaluate <code>(f f)</code>
+, the interpreter will try to do the following
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>f f<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>f 2<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>2 2<span class="org-rainbow-delimiters-depth-1">)</span><span class="org-comment-delimiter">; </span><span class="org-comment">object 2 is not applicable !</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-35" class="outline-2">
+<h2 id="sec-35"><span class="section-number-2">35</span> Exercise 1.35</h2>
+<div class="outline-text-2" id="text-35">
+<p>
+The golden ratio \(\varphi\) must satisfy the following equation:
+\[
+    \varphi^2 = \
+varphi + 1
+\]
+Divides both side by \(\varphi\) (\(\varphi\) is a positive number),
+\[
+\varphi = 1 + \frac{1}{\varphi}
+\]
+Note that, this transfomation does converge (The monotone bounded
+convergence theorem).
+</p>
+
+<p>
+Use the following procedure to calculate the fixed point.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"fixed-point.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-function-name">golden-ratio</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>fixed-point <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-4">(</span>x<span class="org-rainbow-delimiters-depth-4">)</span>
+                 <span class="org-rainbow-delimiters-depth-4">(</span>+ 1
+                    <span class="org-rainbow-delimiters-depth-5">(</span>/ 1 x<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+               1.0<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-scheme">1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; golden-ratio
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: 1.6180339631667064</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-36" class="outline-2">
+<h2 id="sec-36"><span class="section-number-2">36</span> Exercise 1.36</h2>
+<div class="outline-text-2" id="text-36">
+<p>
+Print out the guess each time,
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-function-name">tolerance</span> 0.00001<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">fixed-point</span> f first-guess<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-function-name">close-enough?</span> v1 v2<span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-3">(</span>&lt; <span class="org-rainbow-delimiters-depth-4">(</span>abs <span class="org-rainbow-delimiters-depth-5">(</span>- v1 v2<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
+       tolerance<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-function-name">try</span> guess<span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-3">(</span>display guess<span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-3">(</span>newline<span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">let</span> <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-rainbow-delimiters-depth-5">(</span>next <span class="org-rainbow-delimiters-depth-6">(</span>f guess<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
+      <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-5">(</span>close-enough? guess next <span class="org-rainbow-delimiters-depth-5">)</span>
+          next
+          <span class="org-rainbow-delimiters-depth-5">(</span>try next<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>try first-guess<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-schem">(load "fixed-point-verbose.scm")
+(load "utils.scm") ; average
+(define solve
+  (fixed-point (lambda (x)
+                 (/ (log 1000)
+                    (log x)))
+               2.0))
+
+(define solve-with-average-damping
+  (fixed-point (lambda (x)
+                 (average x
+                          (/ (log 1000)
+                             (log x))))
+               2.0))
+</pre>
+</div>
+<p>
+Take a look at the result
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme">2.
+9.965784284662087
+3.004472209841214
+6.279195757507157
+3.759850702401539
+5.215843784925895
+4.182207192401397
+4.8277650983445906
+4.387593384662677
+4.671250085763899
+4.481403616895052
+4.6053657460929
+4.5230849678718865
+4.577114682047341
+4.541382480151454
+4.564903245230833
+4.549372679303342
+4.559606491913287
+4.552853875788271
+4.557305529748263
+4.554369064436181
+4.556305311532999
+4.555028263573554
+4.555870396702851
+4.555315001192079
+4.5556812635433275
+4.555439715736846
+4.555599009998291
+4.555493957531389
+4.555563237292884
+4.555517548417651
+4.555547679306398
+4.555527808516254
+4.555540912917957
+2.
+5.9828921423310435
+4.922168721308343
+4.628224318195455
+4.568346513136242
+4.5577305909237005
+4.555909809045131
+4.555599411610624
+4.5555465521473675
+</pre>
+</div>
+<p>
+The version with average damping converges must faster!
+</p>
+</div>
+</div>
+<div id="outline-container-sec-37" class="outline-2">
+<h2 id="sec-37"><span class="section-number-2">37</span> Exercise 1.37</h2>
+<div class="outline-text-2" id="text-37">
+<p>
+For the recursive version, we must calculate it from outermost to
+innermost. The iterative process just reverses.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">cont-frac</span> n d k<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-function-name">frac</span> i<span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-4">(</span>= i k<span class="org-rainbow-delimiters-depth-4">)</span>
+        <span class="org-rainbow-delimiters-depth-4">(</span>/ <span class="org-rainbow-delimiters-depth-5">(</span>n i<span class="org-rainbow-delimiters-depth-5">)</span> <span class="org-rainbow-delimiters-depth-5">(</span>d i<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
+        <span class="org-rainbow-delimiters-depth-4">(</span>/ <span class="org-rainbow-delimiters-depth-5">(</span>n i<span class="org-rainbow-delimiters-depth-5">)</span> <span class="org-rainbow-delimiters-depth-5">(</span>+ <span class="org-rainbow-delimiters-depth-6">(</span>d i<span class="org-rainbow-delimiters-depth-6">)</span>
+                    <span class="org-rainbow-delimiters-depth-6">(</span>frac <span class="org-rainbow-delimiters-depth-7">(</span>+ i 1<span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>frac 1<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">cont-frac-iter</span> n d k<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-function-name">iter</span> i result<span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-4">(</span>= i 0<span class="org-rainbow-delimiters-depth-4">)</span>
+        result
+        <span class="org-rainbow-delimiters-depth-4">(</span>iter <span class="org-rainbow-delimiters-depth-5">(</span>- i 1<span class="org-rainbow-delimiters-depth-5">)</span>
+              <span class="org-rainbow-delimiters-depth-5">(</span>/ <span class="org-rainbow-delimiters-depth-6">(</span>n i<span class="org-rainbow-delimiters-depth-6">)</span>
+                 <span class="org-rainbow-delimiters-depth-6">(</span>+ <span class="org-rainbow-delimiters-depth-7">(</span>d i<span class="org-rainbow-delimiters-depth-7">)</span> result<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>iter k 0<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<p>
+Use the following procedure to do test
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"cont-frac.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">test</span> k<span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-comment-delimiter">; </span><span class="org-comment">1 + 1/x</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>+ 1
+     <span class="org-rainbow-delimiters-depth-3">(</span>cont-frac <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-5">(</span>i<span class="org-rainbow-delimiters-depth-5">)</span> 1.0<span class="org-rainbow-delimiters-depth-4">)</span>
+                <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-5">(</span>i<span class="org-rainbow-delimiters-depth-5">)</span> 1.0<span class="org-rainbow-delimiters-depth-4">)</span>
+                k<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-scheme">1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>test 5<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: 1.625</span>
+1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>test 6<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: 1.6153846153846154</span>
+1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>test 10<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: 1.6179775280898876</span>
+1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>test 11<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: 1.6180555555555556</span>
+</pre>
+</div>
+<p>
+When \(k \geq 11\), the approximation is accurate to 4 decimal places.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-38" class="outline-2">
+<h2 id="sec-38"><span class="section-number-2">38</span> Exercise 1.38</h2>
+<div class="outline-text-2" id="text-38">
+<p>
+We only need a slightly different \(D_i\) function, s.t.
+</p>
+\begin{equation*}
+    D_i =
+    \begin{cases}
+    2k, & \text{if}\ i = 3k - 1, k \in \mathbb{N}^+ \\
+    1, & \text{otherwise}
+    \end{cases}
+\end{equation*}
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"cont-frac.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">approx</span> k<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>+ 2
+     <span class="org-rainbow-delimiters-depth-3">(</span>cont-frac <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-5">(</span>i<span class="org-rainbow-delimiters-depth-5">)</span> 1.0<span class="org-rainbow-delimiters-depth-4">)</span>
+                <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-5">(</span>i<span class="org-rainbow-delimiters-depth-5">)</span>
+                  <span class="org-rainbow-delimiters-depth-5">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-6">(</span>= <span class="org-rainbow-delimiters-depth-7">(</span>remainder <span class="org-rainbow-delimiters-depth-8">(</span>+ i 1<span class="org-rainbow-delimiters-depth-8">)</span> 3<span class="org-rainbow-delimiters-depth-7">)</span> 0<span class="org-rainbow-delimiters-depth-6">)</span>
+                      <span class="org-rainbow-delimiters-depth-6">(</span>* <span class="org-rainbow-delimiters-depth-7">(</span>/ <span class="org-rainbow-delimiters-depth-8">(</span>+ i 1<span class="org-rainbow-delimiters-depth-8">)</span> 3<span class="org-rainbow-delimiters-depth-7">)</span>
+                         2<span class="org-rainbow-delimiters-depth-6">)</span>
+                      1<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
+                k<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-scheme">1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>approx 1<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: 3.</span>
+1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>approx 2<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: 2.6666666666666665</span>
+1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>approx 5<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: 2.71875</span>
+1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>approx 4<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: 2.7142857142857144</span>
+</pre>
+</div>
+<p>
+As we can see, it converges very fast (k = 5 produces accuracy for 4
+decimal places)
+</p>
+</div>
+</div>
+<div id="outline-container-sec-39" class="outline-2">
+<h2 id="sec-39"><span class="section-number-2">39</span> Exercise 1.39</h2>
+<div class="outline-text-2" id="text-39">
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"cont-frac.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"utils.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">tan-cf</span> x k<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-function-name">N</span> i<span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-4">(</span>= i 1<span class="org-rainbow-delimiters-depth-4">)</span>
+        x
+        <span class="org-rainbow-delimiters-depth-4">(</span>- <span class="org-rainbow-delimiters-depth-5">(</span>square x<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-function-name">D</span> i<span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-3">(</span>- <span class="org-rainbow-delimiters-depth-4">(</span>* 2 i<span class="org-rainbow-delimiters-depth-4">)</span> 1<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>exact-&gt;inexact <span class="org-rainbow-delimiters-depth-3">(</span>cont-frac N D k<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<p>
+We can compare the result with the built-in <code>tan</code>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme">1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>tan-cf 5 100<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: -3.380515006246586</span>
+1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>tan 5<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: -3.380515006246585</span>
+1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>tan-cf 22 100<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: .00885165604168446</span>
+1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>tan 22<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: .00885165604168446</span>
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <div id='disqus_thread'></div>
@@ -1503,7 +1798,7 @@ Then we can solve the two problems.
   <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></p>
 </noscript><div class='footer'>
 Copyright 2016 &copy; <a href='https://github.com/kevin5396'>Kangwei Ling</a><br/>
-Last updated 2016-09-23 <br/>
+Last updated 2016-09-24 <br/>
 Built with <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) <br/>
 </div>
 <script type='text/javascript'>

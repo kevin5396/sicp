@@ -584,3 +584,133 @@ to combine terms.
 #+INCLUDE: "filtered-accumulate.scm" src scheme
 Then we can solve the two problems.
 #+INCLUDE: "ex1-33.scm" src scheme
+** Exercise 1.34
+The interpreter will utter an error, because when we evaluate =(f f)=
+, the interpreter will try to do the following
+#+BEGIN_SRC scheme
+(f f)
+(f 2)
+(2 2); object 2 is not applicable !
+#+END_SRC
+** Exercise 1.35
+The golden ratio $\varphi$ must satisfy the following equation:
+\[
+    \varphi^2 = \
+varphi + 1
+\]
+Divides both side by $\varphi$ ($\varphi$ is a positive number),
+\[
+\varphi = 1 + \frac{1}{\varphi}
+\]
+Note that, this transfomation does converge (The monotone bounded
+convergence theorem).
+
+Use the following procedure to calculate the fixed point.
+#+INCLUDE: "ex1-35.scm" src scheme
+#+BEGIN_SRC scheme
+1 ]=> golden-ratio
+;Value: 1.6180339631667064
+#+END_SRC
+** Exercise 1.36
+Print out the guess each time,
+#+INCLUDE: "fixed-point-verbose.scm" src scheme
+#+INCLUDE: "ex1-36.scm" src schem
+Take a look at the result
+#+BEGIN_SRC scheme
+2.
+9.965784284662087
+3.004472209841214
+6.279195757507157
+3.759850702401539
+5.215843784925895
+4.182207192401397
+4.8277650983445906
+4.387593384662677
+4.671250085763899
+4.481403616895052
+4.6053657460929
+4.5230849678718865
+4.577114682047341
+4.541382480151454
+4.564903245230833
+4.549372679303342
+4.559606491913287
+4.552853875788271
+4.557305529748263
+4.554369064436181
+4.556305311532999
+4.555028263573554
+4.555870396702851
+4.555315001192079
+4.5556812635433275
+4.555439715736846
+4.555599009998291
+4.555493957531389
+4.555563237292884
+4.555517548417651
+4.555547679306398
+4.555527808516254
+4.555540912917957
+2.
+5.9828921423310435
+4.922168721308343
+4.628224318195455
+4.568346513136242
+4.5577305909237005
+4.555909809045131
+4.555599411610624
+4.5555465521473675
+#+END_SRC
+The version with average damping converges must faster!
+** Exercise 1.37
+For the recursive version, we must calculate it from outermost to
+innermost. The iterative process just reverses.
+#+INCLUDE: "cont-frac.scm" src scheme
+Use the following procedure to do test
+#+INCLUDE: "ex1-37.scm" src scheme
+#+BEGIN_SRC scheme
+1 ]=> (test 5)
+;Value: 1.625
+1 ]=> (test 6)
+;Value: 1.6153846153846154
+1 ]=> (test 10)
+;Value: 1.6179775280898876
+1 ]=> (test 11)
+;Value: 1.6180555555555556
+#+END_SRC
+When $k \geq 11$, the approximation is accurate to 4 decimal places.
+** Exercise 1.38
+We only need a slightly different $D_i$ function, s.t.
+\begin{equation*}
+    D_i =
+    \begin{cases}
+    2k, & \text{if}\ i = 3k - 1, k \in \mathbb{N}^+ \\
+    1, & \text{otherwise}
+    \end{cases}
+\end{equation*}
+#+INCLUDE: "ex1-38.scm" src scheme
+#+BEGIN_SRC scheme
+1 ]=> (approx 1)
+;Value: 3.
+1 ]=> (approx 2)
+;Value: 2.6666666666666665
+1 ]=> (approx 5)
+;Value: 2.71875
+1 ]=> (approx 4)
+;Value: 2.7142857142857144
+#+END_SRC
+As we can see, it converges very fast (k = 5 produces accuracy for 4
+decimal places)
+** Exercise 1.39
+#+INCLUDE: "ex1-39.scm" src scheme
+We can compare the result with the built-in =tan=
+#+BEGIN_SRC scheme
+1 ]=> (tan-cf 5 100)
+;Value: -3.380515006246586
+1 ]=> (tan 5)
+;Value: -3.380515006246585
+1 ]=> (tan-cf 22 100)
+;Value: .00885165604168446
+1 ]=> (tan 22)
+;Value: .00885165604168446
+#+END_SRC
