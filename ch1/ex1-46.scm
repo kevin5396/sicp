@@ -1,0 +1,17 @@
+(load "iter-improve.scm")
+(load "utils.scm")
+
+(define tolerance 0.0000001)
+(define (sqrt n)
+  ((iterative-improve (lambda (x)
+                       (< (abs (- (square x) n)) tolerance))
+                     (lambda (x)
+                       (average x (/ n x))))
+   1.0))
+
+(define (fixed-point f first-guess)
+  ((iterative-improve (lambda (v)
+                        (< (abs (- v (f v))) tolerance))
+                      (lambda (v)
+                        (f v)))
+   first-guess))

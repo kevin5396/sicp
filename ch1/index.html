@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>index</title>
-<!-- 2016-09-24 Sat 11:45 -->
+<!-- 2016-09-25 Sun 10:32 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="kevin5396" />
@@ -231,6 +231,13 @@ for the JavaScript code in this tag.
 <li><a href="#sec-37">37. Exercise 1.37</a></li>
 <li><a href="#sec-38">38. Exercise 1.38</a></li>
 <li><a href="#sec-39">39. Exercise 1.39</a></li>
+<li><a href="#sec-40">40. Exercise 1.40</a></li>
+<li><a href="#sec-41">41. Exercise 1.41</a></li>
+<li><a href="#sec-42">42. Exercise 1.42</a></li>
+<li><a href="#sec-43">43. Exercise 1.43</a></li>
+<li><a href="#sec-44">44. Exercise 1.44</a></li>
+<li><a href="#sec-45">45. Exercise 1.45</a></li>
+<li><a href="#sec-46">46. Exercise 1.46</a></li>
 </ul>
 </div>
 </div>
@@ -1780,6 +1787,299 @@ We can compare the result with the built-in <code>tan</code>
 </div>
 </div>
 </div>
+<div id="outline-container-sec-40" class="outline-2">
+<h2 id="sec-40"><span class="section-number-2">40</span> Exercise 1.40</h2>
+<div class="outline-text-2" id="text-40">
+<p>
+Define <code>cubic</code> as a procedure with a,b,c as arguments and return a
+procedure.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"newton.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"utils.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">cubic</span> a b c<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-3">(</span>x<span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-3">(</span>+ <span class="org-rainbow-delimiters-depth-4">(</span>cube x<span class="org-rainbow-delimiters-depth-4">)</span>
+       <span class="org-rainbow-delimiters-depth-4">(</span>* a <span class="org-rainbow-delimiters-depth-5">(</span>square x<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
+       <span class="org-rainbow-delimiters-depth-4">(</span>* b x<span class="org-rainbow-delimiters-depth-4">)</span>
+       c<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<p>
+run some tests.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme">1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>newtons-method <span class="org-rainbow-delimiters-depth-1">(</span>cubic 1 1 0<span class="org-rainbow-delimiters-depth-1">)</span> 1<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: 1.7046374495392907e-18</span>
+1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span>newtons-method <span class="org-rainbow-delimiters-unmatched">(</span>cubic 0 0 1<span class="org-rainbow-delimiters-unmatched">)</span> 1<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: -.9999999999999982</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-41" class="outline-2">
+<h2 id="sec-41"><span class="section-number-2">41</span> Exercise 1.41</h2>
+<div class="outline-text-2" id="text-41">
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">double</span> g<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-3">(</span>x<span class="org-rainbow-delimiters-depth-3">)</span> <span class="org-rainbow-delimiters-depth-3">(</span>g <span class="org-rainbow-delimiters-depth-4">(</span>g x<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-scheme">1 <span class="org-rainbow-delimiters-unmatched">]</span>=&gt; <span class="org-rainbow-delimiters-unmatched">(</span><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-rainbow-delimiters-depth-2">(</span>double <span class="org-rainbow-delimiters-depth-3">(</span>double double<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span> inc<span class="org-rainbow-delimiters-depth-1">)</span> 5<span class="org-rainbow-delimiters-unmatched">)</span>
+<span class="org-comment-delimiter">;</span><span class="org-comment">Value: 21</span>
+</pre>
+</div>
+<p>
+As we can see, the result is 5 + 16 = 21, so it apply the procedure
+<code>inc</code> 16 times.
+</p>
+
+<p>
+Let me explain this. <code>(double double)</code> gives us a procedure that
+apply <code>double</code> twice, so <code>(double (double double))</code> gives us a procedure
+that apply <code>double</code> 4 times. So we are gonna double <code>inc</code> 4 times. That
+is, \(1 * 2 * 2 * 2 * 2 = 16\).
+</p>
+</div>
+</div>
+<div id="outline-container-sec-42" class="outline-2">
+<h2 id="sec-42"><span class="section-number-2">42</span> Exercise 1.42</h2>
+<div class="outline-text-2" id="text-42">
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">compose</span> f g<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-3">(</span>x<span class="org-rainbow-delimiters-depth-3">)</span> <span class="org-rainbow-delimiters-depth-3">(</span>f <span class="org-rainbow-delimiters-depth-4">(</span>g x<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-43" class="outline-2">
+<h2 id="sec-43"><span class="section-number-2">43</span> Exercise 1.43</h2>
+<div class="outline-text-2" id="text-43">
+<p>
+Using the <code>compose</code> procedure above, this is a piece of cake.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"compose.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">repeat</span> f n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>= n 0<span class="org-rainbow-delimiters-depth-3">)</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-4">(</span>x<span class="org-rainbow-delimiters-depth-4">)</span> x<span class="org-rainbow-delimiters-depth-3">)</span>
+      <span class="org-rainbow-delimiters-depth-3">(</span>compose f <span class="org-rainbow-delimiters-depth-4">(</span>repeat f <span class="org-rainbow-delimiters-depth-5">(</span>- n 1<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-44" class="outline-2">
+<h2 id="sec-44"><span class="section-number-2">44</span> Exercise 1.44</h2>
+<div class="outline-text-2" id="text-44">
+<p>
+(load "compose.scm")
+(load "repeat.scm")
+(load "utils.scm")
+(define dx 0.000001)
+(define (smooth f)
+  (lambda (x)
+    (/ (+ (f (- x dx)) (f x) (f (+ x dx)))
+       3.0)))
+</p>
+
+<p>
+(define (n-fold-smooth f n)
+  ((repeat smooth n) f))
+</p>
+</div>
+</div>
+<div id="outline-container-sec-45" class="outline-2">
+<h2 id="sec-45"><span class="section-number-2">45</span> Exercise 1.45</h2>
+<div class="outline-text-2" id="text-45">
+<p>
+Here we use <code>repeat</code> procedure to define a exp function
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"repeat.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">expt</span> base n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>= n 0<span class="org-rainbow-delimiters-depth-3">)</span>
+      1
+      <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>repeat <span class="org-rainbow-delimiters-depth-5">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-6">(</span>x<span class="org-rainbow-delimiters-depth-6">)</span> <span class="org-rainbow-delimiters-depth-6">(</span>* x base<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span> n<span class="org-rainbow-delimiters-depth-4">)</span> 1<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-comment-delimiter">; </span><span class="org-comment">x^n = x * x * x * ... * 1</span>
+</pre>
+</div>
+<p>
+Then define the procedure to damp a function n times
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"utils.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"repeat.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">average-damping</span> f<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-3">(</span>x<span class="org-rainbow-delimiters-depth-3">)</span> <span class="org-rainbow-delimiters-depth-3">(</span>average x <span class="org-rainbow-delimiters-depth-4">(</span>f x<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">n-average-damping</span> f n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-rainbow-delimiters-depth-3">(</span>repeat average-damping n<span class="org-rainbow-delimiters-depth-3">)</span> f<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<p>
+Now we need a function s.t., with take n and times as arguments,
+return a function that can calculate the n-th roots of inputs with
+<code>times</code> average damping
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"damping.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"fixed-point.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">damped-nth-root</span> n times<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-3">(</span>x<span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-3">(</span>fixed-point
+     <span class="org-rainbow-delimiters-depth-4">(</span>n-average-damping <span class="org-rainbow-delimiters-depth-5">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-6">(</span>y<span class="org-rainbow-delimiters-depth-6">)</span> <span class="org-rainbow-delimiters-depth-6">(</span>/ x <span class="org-rainbow-delimiters-depth-7">(</span>expt y <span class="org-rainbow-delimiters-depth-8">(</span>- n 1<span class="org-rainbow-delimiters-depth-8">)</span><span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span>
+                        times<span class="org-rainbow-delimiters-depth-4">)</span>
+     1.0<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<p>
+So we need to do some experiments to find out how many times of
+damping are needed for calculating n-th root.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">n</th>
+<th scope="col" class="right">2</th>
+<th scope="col" class="right">3</th>
+<th scope="col" class="right">4</th>
+<th scope="col" class="right">5</th>
+<th scope="col" class="right">6</th>
+<th scope="col" class="right">7</th>
+<th scope="col" class="right">8</th>
+<th scope="col" class="right">9</th>
+<th scope="col" class="left">&#x2026;</th>
+<th scope="col" class="right">16</th>
+<th scope="col" class="left">&#x2026;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">damping times</td>
+<td class="right">1</td>
+<td class="right">1</td>
+<td class="right">2</td>
+<td class="right">2</td>
+<td class="right">2</td>
+<td class="right">2</td>
+<td class="right">3</td>
+<td class="right">3</td>
+<td class="left">&#x2026;</td>
+<td class="right">4</td>
+<td class="left">&#x2026;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+As we can see, the minimum times of damping for the n-th root fixed point
+iteration to converge is \(\lfloor \lg n\rfloor\).
+</p>
+
+<p>
+We need a \(\lg\) function.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">lg</span> x<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-3">(</span>&lt; x 2<span class="org-rainbow-delimiters-depth-3">)</span>
+      0
+      <span class="org-rainbow-delimiters-depth-3">(</span>+ <span class="org-rainbow-delimiters-depth-4">(</span>lg <span class="org-rainbow-delimiters-depth-5">(</span>/ x 2<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
+         1<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<p>
+Using procedures defined above, now we can finally get a generic
+procedure for find n-th root
+(load "lg.scm")
+(load "ex1-44.scm")
+</p>
+
+<p>
+(define (nth-root n)
+  (damped-nth-root n (lg n)))
+</p>
+</div>
+</div>
+<div id="outline-container-sec-46" class="outline-2">
+<h2 id="sec-46"><span class="section-number-2">46</span> Exercise 1.46</h2>
+<div class="outline-text-2" id="text-46">
+<p>
+The <code>iterative-improve</code> procedure
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">iterative-improve</span> good-enough? improve<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-function-name">iter-improve</span> guess<span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-4">(</span>good-enough? guess<span class="org-rainbow-delimiters-depth-4">)</span>
+        guess
+        <span class="org-rainbow-delimiters-depth-4">(</span>iter-improve <span class="org-rainbow-delimiters-depth-5">(</span>improve guess<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span>
+  iter-improve<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+<p>
+Then we can redefine the <code>sqrt</code> and <code>fixed-point</code> procedure.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"iter-improve.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span>load <span class="org-string">"utils.scm"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-function-name">tolerance</span> 0.0000001<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">sqrt</span> n<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-rainbow-delimiters-depth-3">(</span>iterative-improve <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-5">(</span>x<span class="org-rainbow-delimiters-depth-5">)</span>
+                       <span class="org-rainbow-delimiters-depth-5">(</span>&lt; <span class="org-rainbow-delimiters-depth-6">(</span>abs <span class="org-rainbow-delimiters-depth-7">(</span>- <span class="org-rainbow-delimiters-depth-8">(</span>square x<span class="org-rainbow-delimiters-depth-8">)</span> n<span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span> tolerance<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
+                     <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-5">(</span>x<span class="org-rainbow-delimiters-depth-5">)</span>
+                       <span class="org-rainbow-delimiters-depth-5">(</span>average x <span class="org-rainbow-delimiters-depth-6">(</span>/ n x<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+   1.0<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">define</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-function-name">fixed-point</span> f first-guess<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-rainbow-delimiters-depth-3">(</span>iterative-improve <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-5">(</span>v<span class="org-rainbow-delimiters-depth-5">)</span>
+                        <span class="org-rainbow-delimiters-depth-5">(</span>&lt; <span class="org-rainbow-delimiters-depth-6">(</span>abs <span class="org-rainbow-delimiters-depth-7">(</span>- v <span class="org-rainbow-delimiters-depth-8">(</span>f v<span class="org-rainbow-delimiters-depth-8">)</span><span class="org-rainbow-delimiters-depth-7">)</span><span class="org-rainbow-delimiters-depth-6">)</span> tolerance<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span>
+                      <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-5">(</span>v<span class="org-rainbow-delimiters-depth-5">)</span>
+                        <span class="org-rainbow-delimiters-depth-5">(</span>f v<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+   first-guess<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <div id='disqus_thread'></div>
@@ -1798,7 +2098,7 @@ We can compare the result with the built-in <code>tan</code>
   <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></p>
 </noscript><div class='footer'>
 Copyright 2016 &copy; <a href='https://github.com/kevin5396'>Kangwei Ling</a><br/>
-Last updated 2016-09-24 <br/>
+Last updated 2016-09-25 <br/>
 Built with <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) <br/>
 </div>
 <script type='text/javascript'>

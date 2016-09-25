@@ -1,0 +1,5 @@
+(load "compose.scm")
+(define (repeat f n)
+  (if (= n 0)
+      (lambda (x) x)
+      (compose f (repeat f (- n 1)))))

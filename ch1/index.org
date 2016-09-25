@@ -714,3 +714,63 @@ We can compare the result with the built-in =tan=
 1 ]=> (tan 22)
 ;Value: .00885165604168446
 #+END_SRC
+** Exercise 1.40
+Define =cubic= as a procedure with a,b,c as arguments and return a
+procedure.
+#+INCLUDE: "ex1-40.scm" src scheme
+run some tests.
+#+BEGIN_SRC scheme
+1 ]=> (newtons-method (cubic 1 1 0) 1)
+;Value: 1.7046374495392907e-18
+1 ]=> (newtons-method (cubic 0 0 1) 1)
+;Value: -.9999999999999982
+#+END_SRC
+** Exercise 1.41
+#+INCLUDE: "ex1-41.scm" src scheme
+#+BEGIN_SRC scheme
+1 ]=> (((double (double double)) inc) 5)
+;Value: 21
+#+END_SRC
+As we can see, the result is 5 + 16 = 21, so it apply the procedure
+=inc= 16 times.
+
+Let me explain this. =(double double)= gives us a procedure that
+apply =double= twice, so =(double (double double))= gives us a procedure
+that apply =double= 4 times. So we are gonna double =inc= 4 times. That
+is, $1 * 2 * 2 * 2 * 2 = 16$.
+** Exercise 1.42
+#+INCLUDE: "compose.scm" src scheme
+** Exercise 1.43
+Using the =compose= procedure above, this is a piece of cake.
+#+INCLUDE: "repeat.scm" src scheme
+** Exercise 1.44
+#+INCLUDE: "smooth.scm"
+** Exercise 1.45
+Here we use =repeat= procedure to define a exp function
+#+INCLUDE: "exp.scm" src scheme
+Then define the procedure to damp a function n times
+#+INCLUDE: "damping.scm" src scheme
+Now we need a function s.t., with take n and times as arguments,
+return a function that can calculate the n-th roots of inputs with
+=times= average damping
+#+INCLUDE: "ex1-44.scm" src scheme
+So we need to do some experiments to find out how many times of
+damping are needed for calculating n-th root.
+
+| n             | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | ... | 16 | ... |
+|---------------+---+---+---+---+---+---+---+---+-----+----+-----|
+| damping times | 1 | 1 | 2 | 2 | 2 | 2 | 3 | 3 | ... |  4 | ... |
+
+As we can see, the minimum times of damping for the n-th root fixed point
+iteration to converge is $\lfloor \lg n\rfloor$.
+
+We need a $\lg$ function.
+#+INCLUDE: "lg.scm" src scheme
+Using procedures defined above, now we can finally get a generic
+procedure for find n-th root
+#+INCLUDE: "nth-root.scm" scheme
+** Exercise 1.46
+The =iterative-improve= procedure
+#+INCLUDE: "iter-improve.scm" src scheme
+Then we can redefine the =sqrt= and =fixed-point= procedure.
+#+INCLUDE: "ex1-46.scm" src scheme
