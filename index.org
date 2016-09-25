@@ -1,7 +1,11 @@
 #+TITLE: Answers to Exercises in the book SICP
 #+SUBTITLE: Structure and Interpretation of Computer Programs
 
-* TODO Building Abstractions with Procedures
+* DONE Building Abstractions with Procedures
+  CLOSED: [2016-09-25 Sun 10:34]
+  :LOGBOOK:
+  - State "DONE"       from "TODO"       [2016-09-25 Sun 10:34]
+  :END:
    #+INCLUDE: "ch1/index.org"
 * TODO Building Abstractions with Data
 * TODO Modularity, Objects, and State
